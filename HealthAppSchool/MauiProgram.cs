@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HealthAppSchool.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace HealthAppSchool
 {
@@ -7,6 +9,9 @@ namespace HealthAppSchool
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+            builder.Services.AddDbContext<DataContext>(
+                options => options.UseSqlite($"Data Source={Path.Combine(FileSystem.AppDataDirectory, "HealthApp.db")}")
+                );
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -18,7 +23,7 @@ namespace HealthAppSchool
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<HealthAppDatabase>();
             return builder.Build();
         }
     }
