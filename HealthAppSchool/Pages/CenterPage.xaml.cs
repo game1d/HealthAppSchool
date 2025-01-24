@@ -47,4 +47,9 @@ public partial class CenterPage : ContentPage
     {
         //Navigation.PushAsync(new KennisClipPage());
     }
+
+    private void MedicijnButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MedicijnPage());
+    }
 }
