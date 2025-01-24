@@ -23,6 +23,9 @@
             <Label Text="Wachtwoord"/>
             <Entry x:Name="WachtwoordInput"/>
             <Button Text="Inloggen" x:Name="InlogButton" Clicked="InlogButton_Clicked"/>
+            
+            <Label Text="Nog geen account?"/>
+            <Button Text="Registreren" x:Name="RegistreerButton" Clicked="RegistreerButton_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 

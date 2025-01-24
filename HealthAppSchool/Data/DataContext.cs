@@ -24,7 +24,7 @@ namespace HealthAppSchool.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Klant>().HasData(
-                new Klant("JanMango@live.nl", "Wachtwoord1") { KlantId = 1, KlantName = "Jan Mango"  }
+                new Klant( "Jan", "Mango","JanMango@live.nl", "Wachtwoord1") { KlantId = 1}
                 );
             
         }

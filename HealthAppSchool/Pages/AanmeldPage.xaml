@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthAppSchool.Pages.AanmeldPage"
+             Title="Nieuw registratie account">
+    <VerticalStackLayout Padding="10" Margin="0,20">
+        
+        <Entry Placeholder="Voornaam: " x:Name="voornaamEntry"/>
+        <Entry Placeholder="Achternaam: " x:Name="achternaamEntry" />
+        <Entry Placeholder="E-mail adres: " x:Name="emailEntry" />
+        <Entry Placeholder="Wachtwoord: " x:Name="wachtwoordEntry" IsPassword="True"/>
+        
+        <HorizontalStackLayout>
+
+            <Button Text="Aanmelden" BackgroundColor="Purple" x:Name="aanmeldBtn" Clicked="aanmeldBtn_Clicked"/>
+            <Button Text="Annuleren" BackgroundColor="Purple" x:Name="annuleerBtn" Clicked="annuleerBtn_Clicked"/>
+            
+            
+        </HorizontalStackLayout>
+        
+
+
+    </VerticalStackLayout>
+</ContentPage>

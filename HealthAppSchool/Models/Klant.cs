@@ -9,7 +9,8 @@ namespace HealthAppSchool.Models
     public class Klant
     {
         public int KlantId { get; set; }
-        public string KlantName { get; set; }
+        public string Voornaam { get; set; }
+        public string Achternaam { get; set; }
         public string Email {  get; set; }
         public string WachtWoord {  get; set; }
         public List<VoedselInname> VoedselInnames { get; set; }
@@ -19,8 +20,10 @@ namespace HealthAppSchool.Models
         public KlantToken Token { get; set; }
 
         public Klant() { }
-        public Klant(string email, string wachtWoord) 
+        public Klant(string voornaam, string achternaam, string email, string wachtWoord) 
         {
+            Voornaam = voornaam;
+            Achternaam = achternaam;
             Email = email;
             WachtWoord = wachtWoord;
             VoedselInnames = new List<VoedselInname>();
