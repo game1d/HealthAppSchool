@@ -30,9 +30,9 @@ namespace HealthAppSchool.Data
                 );
 
             modelBuilder.Entity<KennisClip>().HasData(
-                new KennisClip() { KennisClipId=1, Name="clip1", Description="Dit is kennisclip 1"},
-                new KennisClip() { KennisClipId = 2, Name = "clip2", Description = "Dit is kennisclip 2" },
-                new KennisClip() { KennisClipId = 3, Name = "clip3", Description = "Dit is kennisclip 3" }
+                new KennisClip() { KennisClipId=1, Name="clip1", Description="Dit is kennisclip 1", Url="url1"},
+                new KennisClip() { KennisClipId = 2, Name = "clip2", Description = "Dit is kennisclip 2", Url = "url2" },
+                new KennisClip() { KennisClipId = 3, Name = "clip3", Description = "Dit is kennisclip 3", Url = "url3" }
                 );
             
         }

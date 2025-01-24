@@ -45,6 +45,6 @@ public partial class CenterPage : ContentPage
 
     private void KennisClipButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new KennisClipPage());
+        //Navigation.PushAsync(new KennisClipPage());
     }
 }
