@@ -16,7 +16,7 @@ namespace HealthAppSchool.Data
         {
             _context = dataContext;
         }
-
+        // klanttoken crud
         public KlantToken GetKlantToken() 
         { 
             KlantToken result = new KlantToken();
@@ -36,6 +36,8 @@ namespace HealthAppSchool.Data
             _context.KlantTokenDb.Remove(klantToken);
             await _context.SaveChangesAsync();
         }
+
+        //klant crud
         public async Task<Klant> GetKlantOnEmail(string email)
         {
             Klant Result = new Klant();
@@ -47,5 +49,22 @@ namespace HealthAppSchool.Data
             }
             return Result;
         }
+
+
+        //fysieke activiteit en verbranding crud
+
+        //voeding en voedingswaarde crud
+
+        //slaappatroon crud
+
+        //patient crud
+
+        //medicijn en medicijn afspraak crud
+
+        //kennisclips en stressmanagement crud
+
+        //consulent crud
+
+        //afspraak crud
     }
 }

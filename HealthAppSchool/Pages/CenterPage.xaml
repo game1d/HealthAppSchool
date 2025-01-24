@@ -4,14 +4,20 @@
              x:Class="HealthAppSchool.Pages.CenterPage"
              Title="CenterPage"
              NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked"/>
+    <ToolbarItem 
+                x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
+    </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Welkom bij je healthapp" FontSize="Title"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
         <Button x:Name="backButton" Text="Back" Clicked="backButton_Clicked"/>
-        <Grid>
+        <Grid Padding="20" ColumnSpacing="50" HorizontalOptions="Center" RowSpacing="15">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -21,11 +27,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="FysiekeActiviteitButton" Text="Fysieke activiteit" Grid.Row="0" Grid.Column="0" Clicked="FysiekeActiviteitButton_Clicked"/>
-            <Button Text="Verbrande caloriën" Grid.Row="0" Grid.Column="1"/>
+            <Button x:Name="VerbrandeCaloriënbutton" Text="Verbrande caloriën" Grid.Row="0" Grid.Column="1" Clicked="VerbrandeCaloriënbutton_Clicked"/>
             <Button Text="Voedings inname" Grid.Row="1" Grid.Column="0"/>
             <Button Text="Voedingswaarde" Grid.Row="1" Grid.Column="1"/>
             <Button Text="Slaappatroon" Grid.Row="2" Grid.Column="0"/>

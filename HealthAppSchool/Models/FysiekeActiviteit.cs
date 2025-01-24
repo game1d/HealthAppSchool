@@ -13,5 +13,6 @@ namespace HealthAppSchool.Models
         public Klant Klant { get; set; }
         public double DuurMinuten {  get; set; }
         public string SoortActiviteit {  get; set; }
+        public DateOnly Datum {  get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace HealthAppSchool.Models
         public Klant Klant { get; set; }
         public string Voedsel {  get; set; }
         public int Gram {  get; set; }
+        public DateOnly Datum { get; set; }
     }
 }

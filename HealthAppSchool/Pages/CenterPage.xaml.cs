@@ -10,9 +10,10 @@ public partial class CenterPage : ContentPage
 
     public CenterPage(HealthAppDatabase dataBase, KlantToken klantToken)
 	{
-		InitializeComponent();
         healthAppDatabase = dataBase;
         KlantToken = klantToken;
+        InitializeComponent();
+        
 	}
 
     private void backButton_Clicked(object sender, EventArgs e)
@@ -25,5 +26,20 @@ public partial class CenterPage : ContentPage
     private void FysiekeActiviteitButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new FysiekeActiviteitPage());
+    }
+
+    private void VerbrandeCaloriënbutton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new VerbrandeCalorienPage());
+    }
+
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
+
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
     }
 }
