@@ -39,5 +39,11 @@ namespace HealthAppSchool
             catch (Exception excep) 
             { await DisplayAlert("Inlogerror", $"{excep}", "ok");  }
         }
+        protected override async void OnNavigatedTo(NavigatedToEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            WachtwoordInput.Text = string.Empty;
+            EmailInput.Text = string.Empty;
+        }
     }
 }
