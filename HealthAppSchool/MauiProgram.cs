@@ -1,4 +1,5 @@
 ﻿using HealthAppSchool.Data;
+using HealthAppSchool.Pages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -24,6 +25,7 @@ namespace HealthAppSchool
     		builder.Logging.AddDebug();
 #endif
             builder.Services.AddSingleton<HealthAppDatabase>();
+            builder.Services.AddTransient<AanmeldPage>();
             return builder.Build();
         }
     }

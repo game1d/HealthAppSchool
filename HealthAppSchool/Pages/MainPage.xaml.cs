@@ -45,5 +45,10 @@ namespace HealthAppSchool
             WachtwoordInput.Text = string.Empty;
             EmailInput.Text = string.Empty;
         }
+
+        private async void RegistreerButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AanmeldPage(healthAppDatabase));
+        }
     }
 }

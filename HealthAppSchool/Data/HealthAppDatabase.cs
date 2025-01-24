@@ -50,6 +50,12 @@ namespace HealthAppSchool.Data
             return Result;
         }
 
+        //Nieuwe Klant aanmaken en opslaan in de database
+        public async void CreateKlant(Klant klant)
+        {
+            await _context.KlantDb.AddAsync(klant);
+            await _context.SaveChangesAsync();
+        }
 
         //fysieke activiteit en verbranding crud
 
