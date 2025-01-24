@@ -35,7 +35,7 @@
             <Button Text="Voedings inname" Grid.Row="1" Grid.Column="0"/>
             <Button Text="Voedingswaarde" Grid.Row="1" Grid.Column="1"/>
             <Button Text="Slaappatroon" Grid.Row="2" Grid.Column="0"/>
-            <Button Text="Kennisclips" Grid.Row="3" Grid.Column="0"/>
+            <Button x:Name="KennisClipButton" Text="Kennisclips" Grid.Row="3" Grid.Column="0" Clicked="KennisClipButton_Clicked"/>
             <Button Text="Stressmanagement" Grid.Row="3" Grid.Column="1"/>
         </Grid>
         

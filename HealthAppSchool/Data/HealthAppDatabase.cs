@@ -62,6 +62,13 @@ namespace HealthAppSchool.Data
         //medicijn en medicijn afspraak crud
 
         //kennisclips en stressmanagement crud
+        public async Task<List<KennisClip>> GetKennisClips()
+        {
+            List<KennisClip> result = new List<KennisClip>();
+            result = await _context.KennisClipDb.ToListAsync();
+            return result;
+        }
+
 
         //consulent crud
 
