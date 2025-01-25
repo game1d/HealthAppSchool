@@ -17,7 +17,10 @@ namespace HealthAppSchool.Data
         }
 
         public DbSet<Klant> KlantDb { get; set; }
+        public DbSet<Patient> PatientDb { get; set; }
         public DbSet<KlantToken> KlantTokenDb { get; set; }
+        
+        public DbSet<Medicijn> medicijnDb {  get; set; }
 
         public DbSet<FysiekeActiviteit> fysiekeActiviteitDb { get; set; }
 
@@ -38,9 +41,12 @@ namespace HealthAppSchool.Data
                 new KennisClip() { KennisClipId = 3, Name = "clip3", Description = "Dit is kennisclip 3", Url = "url3" }
                 );
             modelBuilder.Entity<Medicijn>().HasData(
-                new Medicijn() { MedicijnId = 1, MedicijnNaam = "Paracetamol" },
-                new Medicijn() { MedicijnId = 2, MedicijnNaam = "Ibuprofen" },
-                new Medicijn() { MedicijnId = 3, MedicijnNaam = "Rennie" }
+                new Medicijn() { MedicijnId = 1, MedicijnNaam = "Paracetamol", PatientId=1 },
+                new Medicijn() { MedicijnId = 2, MedicijnNaam = "Ibuprofen", PatientId = 1 },
+                new Medicijn() { MedicijnId = 3, MedicijnNaam = "Rennie", PatientId = 1 }
+                );
+            modelBuilder.Entity<Patient>().HasData(
+                new Patient() { KlantId=1, PatientId=1}
                 );
             modelBuilder.Entity<StressManagement>().HasData(
                 new StressManagement() { StressManagementId = 1, Name = "StressClip1", Description = "Dit is stressclip 1", Url = "url1" },
