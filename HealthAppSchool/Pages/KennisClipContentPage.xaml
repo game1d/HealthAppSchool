@@ -3,15 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.KennisClipContentPage"
              Title="KenisClipContentPage">
-    <ListView x:Name="KennisClipView" RowHeight="150">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout BackgroundColor="Grey" Padding="20">
-                        <Label Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center"/>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <VerticalStackLayout>
+        <Label
+            x:Name="ClipNaam"
+            Text="{Binding kennisClipNaam}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="Title"/>
+        <Label
+    x:Name="ClipBeschrijving"
+    Text="{Binding KennisClipBeschrijving}"
+    VerticalOptions="Center"
+    HorizontalOptions="Center"
+    FontSize="Body"/>
+
+    </VerticalStackLayout>
 </ContentPage>

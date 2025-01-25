@@ -11,7 +11,7 @@ namespace HealthAppSchool.Models
         public int FysiekeActiviteitId {  get; set; }
         public int KlantId { get; set; }
         public Klant Klant { get; set; }
-        public double DuurMinuten {  get; set; }
+        public int DuurMinuten {  get; set; }
         public string SoortActiviteit {  get; set; }
         public DateOnly Datum {  get; set; }
     }

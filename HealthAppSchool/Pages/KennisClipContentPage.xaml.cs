@@ -4,12 +4,16 @@ namespace HealthAppSchool.Pages;
 
 public partial class KennisClipContentPage : ContentPage
 {
-	KennisClip GebruikteKennisClip { get; set; }
+	public string kennisClipNaam {  get; set; }
+	public string KennisClipBeschrijving {  get; set; }
+	public string Url { get; set; }
+	
 	public KennisClipContentPage(KennisClip GekozenKennisClip)
 	{
 		InitializeComponent();
-		GebruikteKennisClip = GekozenKennisClip;
-		
-
+		kennisClipNaam = GekozenKennisClip.Name;
+		KennisClipBeschrijving = GekozenKennisClip.Description;
+		Url = GekozenKennisClip.Url;
+		BindingContext=this;
     }
 }

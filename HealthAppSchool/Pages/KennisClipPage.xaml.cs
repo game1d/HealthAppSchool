@@ -10,8 +10,6 @@ public partial class KennisClipPage : ContentPage
 	{
         healthAppDatabase = dataBase;
         InitializeComponent();
-		
-
     }
 
     protected override async void OnNavigatedTo(NavigatedToEventArgs e)

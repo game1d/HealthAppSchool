@@ -74,7 +74,12 @@ namespace HealthAppSchool.Data
             result = await _context.KennisClipDb.ToListAsync();
             return result;
         }
-
+        public async Task<List<StressManagement>> GetStressManagement()
+        {
+            List<StressManagement> result = new List<StressManagement>();
+            result = await _context.stressManagementDb.ToListAsync();
+            return result;
+        }
 
         //consulent crud
 

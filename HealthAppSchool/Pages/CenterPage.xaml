@@ -36,7 +36,7 @@
             <Button Text="Voedingswaarde" Grid.Row="1" Grid.Column="1"/>
             <Button Text="Slaappatroon" Grid.Row="2" Grid.Column="0"/>
             <Button x:Name="KennisClipButton" Text="Kennisclips" Grid.Row="3" Grid.Column="0" Clicked="KennisClipButton_Clicked"/>
-            <Button Text="Stressmanagement" Grid.Row="3" Grid.Column="1"/>
+            <Button x:Name="StressManagementButton" Text="Stressmanagement" Grid.Row="3" Grid.Column="1" Clicked="StressManagementButton_Clicked"/>
         </Grid>
         
     </VerticalStackLayout>
