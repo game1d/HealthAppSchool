@@ -66,6 +66,44 @@ namespace HealthAppSchool.Data
         //patient crud
 
         //medicijn en medicijn afspraak crud
+        public async Task<List<Medicijn>>GetMedicijnenByPatientId(int patientId)
+        {
+            return await _context.medicijnDb.Where(m => m.PatientId == patientId).ToListAsync();
+        }
+        public async Task<Medicijn> GetMedicijnById(int medicijnId)
+        {
+            return await _context.medicijnDb.FirstOrDefaultAsync(m => m.MedicijnId == medicijnId);
+        }
+        public async Task CreateMedicijn(Medicijn medicijn)
+        {
+            await _context.medicijnDb.AddAsync(medicijn);
+            await _context.SaveChangesAsync();
+        }
+        public async Task DeleteMedicijn(int medicijnId)
+        {
+            var medicijn = await _context.medicijnDb.FirstOrDefaultAsync(m =>m.MedicijnId ==medicijnId);
+            await _context.SaveChangesAsync();
+        }
+
+        //MedicijnHerinnering
+        public async Task<List<MedicijnHerinnering>> GetMedicijnHerinneringByPatientId(int patientId)
+        {
+            return await _context.Set<MedicijnHerinnering>().Where(mh => mh.PatientId == patientId).ToListAsync();
+        }
+        public async Task<MedicijnHerinnering> GetMedicijnHerinneringById(int HerinneringId)
+        {
+            return await _context.Set<MedicijnHerinnering>().FirstOrDefaultAsync(mh => mh.MedicijnHerinneringId == HerinneringId);
+        }
+        public async Task CreateMedicijnHerinnering(MedicijnHerinnering herinnering)
+        {
+            await _context.Set<MedicijnHerinnering>().AddAsync(herinnering);
+            await _context.SaveChangesAsync();
+        }
+        public async Task DeleteMedicijnHerinnering(int herinneringId)
+        {
+            var herinnering = await _context.Set<MedicijnHerinnering>().FirstOrDefaultAsync(mh => mh.MedicijnHerinneringId == herinneringId);
+            await _context.SaveChangesAsync();
+        }
 
         //kennisclips en stressmanagement crud
         public async Task<List<KennisClip>> GetKennisClips()

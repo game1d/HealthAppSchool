@@ -11,4 +11,9 @@ public partial class MedicijnPage : ContentPage
     {
 
     }
+
+    private void bestelbtn_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
