@@ -37,6 +37,11 @@ namespace HealthAppSchool.Data
                 new KennisClip() { KennisClipId = 2, Name = "clip2", Description = "Dit is kennisclip 2", Url = "url2" },
                 new KennisClip() { KennisClipId = 3, Name = "clip3", Description = "Dit is kennisclip 3", Url = "url3" }
                 );
+            modelBuilder.Entity<Medicijn>().HasData(
+                new Medicijn() { MedicijnId = 1, MedicijnNaam = "Paracetamol" },
+                new Medicijn() { MedicijnId = 2, MedicijnNaam = "Ibuprofen" },
+                new Medicijn() { MedicijnId = 3, MedicijnNaam = "Rennie" }
+                );
             modelBuilder.Entity<StressManagement>().HasData(
                 new StressManagement() { StressManagementId = 1, Name = "StressClip1", Description = "Dit is stressclip 1", Url = "url1" },
                 new StressManagement() { StressManagementId = 2, Name = "StressClip2", Description = "Dit is stressclip 2", Url = "url2" }

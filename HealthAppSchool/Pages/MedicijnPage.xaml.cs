@@ -6,4 +6,9 @@ public partial class MedicijnPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+
+    }
 }
