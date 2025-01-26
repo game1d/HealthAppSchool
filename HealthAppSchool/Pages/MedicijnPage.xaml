@@ -3,27 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.MedicijnPage"
              Title="MedicijnPage">
-    <VerticalStackLayout>
-        <Label Text="Medicijnoverzicht" HorizontalOptions="Center" FontSize="Large"/>
-        <Label Text="Te bestellen Medicijnen via app" Padding="10"/>
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label  Text="Welkom" x:Name="welkomText" HorizontalOptions="Center" FontSize="Header"/>
+        <Button x:Name="bestelbtn" 
+                Text="Medicijn Bestellen" 
+                FontSize="Large" 
+                Clicked="bestelbtn_Clicked" 
+                />
+        <Button x:Name="Medicijnplannerbtn" 
+                Text="Medicijntijd Plannen" 
+                FontSize="Large" 
+                Clicked="Medicijnplannerbtn_Clicked"
+                />
 
-        <ScrollView>
-            <StackLayout>
-                <Label Text="Lijst van Medicijn" HorizontalOptions="Center"/>
-                <ListView x:Name="LvMedicijn" ItemsSource="{Binding MedicijnNaam}" HasUnevenRows="True" ItemTapped="LvMedicijn_ItemTapped">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal" Padding="10">
-                                    <Label Text="{Binding MedicijnNaam}"/>
-                          
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
 
-        </ScrollView>
+
+
+      
     </VerticalStackLayout>
 </ContentPage>
