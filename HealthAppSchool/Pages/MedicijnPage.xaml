@@ -3,22 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.MedicijnPage"
              Title="MedicijnPage">
+
     <VerticalStackLayout Padding="20" Spacing="20">
         <Label  Text="Welkom" x:Name="welkomText" HorizontalOptions="Center" FontSize="Header"/>
         <Button x:Name="bestelbtn" 
                 Text="Medicijn Bestellen" 
                 FontSize="Large" 
-                Clicked="bestelbtn_Clicked" 
+               Clicked="bestelbtn_Clicked" 
                 />
         <Button x:Name="Medicijnplannerbtn" 
                 Text="Medicijntijd Plannen" 
                 FontSize="Large" 
-                Clicked="Medicijnplannerbtn_Clicked"
+              Clicked="Medicijnplannerbtn_Clicked"
                 />
-
-
-
-
-      
-    </VerticalStackLayout>
+        </VerticalStackLayout>
 </ContentPage>

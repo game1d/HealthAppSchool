@@ -8,21 +8,42 @@ public partial class MedicijnPage : ContentPage
 {
    
     HealthAppDatabase healthAppDatabase;
-    public MedicijnPage(HealthAppDatabase dataBase)
+  
+    public MedicijnPage(HealthAppDatabase healtAppDatase)
 	{
 		InitializeComponent();
-        healthAppDatabase = dataBase;
+        healthAppDatabase = healtAppDatase;
+        BindingContext = this;
+        HaalPatientData();
     }
 
-    private void Medicijnplannerbtn_Clicked(object sender, EventArgs e)
+    public async void HaalPatientData()
     {
-
+       
+        //var patient = await _healthAppDatabase.GetPatientByPatientId(PatientId);
+        //if (patient != null)
+        //{
+        //    WelcomeLabel.Text = $"Welkom {Patient.PatientName}";
+        //}
+        //else
+        //{
+        //    WelcomeLabel.Text = "Patient niet gevonden.";
+        //}
     }
 
     private async void bestelbtn_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MedicijnBestellerPage(healthAppDatabase));
+       
     }
+
+    private async void Medicijnplannerbtn_Clicked(object sender, EventArgs e)
+    {
+       // await Navigation.PushAsync(new MedicijnPlannerPage(healthAppDatabase));
+    }
+
+
+
 
     //private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
     //{

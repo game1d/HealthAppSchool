@@ -6,23 +6,23 @@
     <VerticalStackLayout>
         <Label Text="Medicijnoverzicht" HorizontalOptions="Center" FontSize="Large"/>
         <Label Text="Te bestellen Medicijnen via app" Padding="10"/>
-
-  <ScrollView>
+        <ScrollView>
             <StackLayout>
-                <ListView x:Name="LvMedicijn" ItemsSource="{Binding MedicijnNaam}" HasUnevenRows="True" ItemTapped="LvMedicijn_ItemTapped">
-              <ListView.ItemTemplate>
-                  <DataTemplate>
-                      <ViewCell>
-                          <StackLayout Orientation="Horizontal" Padding="10">
-                              <Label Text="{Binding MedicijnNaam}"/>
-                    
-                          </StackLayout>
-                      </ViewCell>
-                  </DataTemplate>
-              </ListView.ItemTemplate>
-          </ListView>
-      </StackLayout>
+                <Label Text="Lijst van Medicijn"/>
+                <ListView x:Name="LvMedicijn" ItemsSource="{Binding Medicijnen}" HasUnevenRows="True" ItemTapped="LvMedicijn_ItemTapped" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Label Text="{Binding MedicijnNaam}"/>
 
-  </ScrollView>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>
