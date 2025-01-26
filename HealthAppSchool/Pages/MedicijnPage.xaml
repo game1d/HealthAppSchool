@@ -9,7 +9,7 @@
 
         <ScrollView>
             <StackLayout>
-                <Label Text="Lijst van Medicijn"/>
+                <Label Text="Lijst van Medicijn" HorizontalOptions="Center"/>
                 <ListView x:Name="LvMedicijn" ItemsSource="{Binding MedicijnNaam}" HasUnevenRows="True" ItemTapped="LvMedicijn_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
