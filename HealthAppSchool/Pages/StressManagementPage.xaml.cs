@@ -17,11 +17,16 @@ public partial class StressManagementPage : ContentPage
         var items = await healthAppDatabase.GetStressManagement();
 
         StressmanagementClipView.ItemsSource = items;
+
     }
 
     private void StressmanagementClipView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         var gekozenStressmanagementClip = StressmanagementClipView.SelectedItem as StressManagement;
-        Navigation.PushAsync(new StressManagementContentPage(gekozenStressmanagementClip));
+        if (gekozenStressmanagementClip != null) 
+        { Navigation.PushAsync(new StressManagementContentPage(gekozenStressmanagementClip)); }
+        StressmanagementClipView.SelectedItem = null;
     }
+
+    
 }

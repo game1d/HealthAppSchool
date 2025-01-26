@@ -59,6 +59,17 @@ namespace HealthAppSchool.Data
         }
 
         //fysieke activiteit en verbranding crud
+        public async void CreateFysiekeActiviteit(FysiekeActiviteit fa)
+        {
+            await _context.fysiekeActiviteitDb.AddAsync(fa);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<FysiekeActiviteit>> GetFysiekeActiviteiten()
+        {
+            List<FysiekeActiviteit> activiteiten = await _context.fysiekeActiviteitDb.ToListAsync();
+            return activiteiten;
+        }
 
         //voeding en voedingswaarde crud
 
