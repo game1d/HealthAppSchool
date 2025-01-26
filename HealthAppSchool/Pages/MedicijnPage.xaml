@@ -5,7 +5,7 @@
              Title="MedicijnPage">
     <VerticalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
         <Label x:Name="WelcomeLabel"
-               Text="Welkome"
+               Text="Welkom"
                FontSize="Large"
                HorizontalOptions="Center"/>
 
@@ -16,7 +16,8 @@
 
         <Button Text="Medicijn Herinnering"
                 x:Name="herinneringbtn"
-                FontSize="Medium"/>
+                FontSize="Medium"
+                Clicked="herinneringbtn_Clicked"/>
 
 
 
@@ -34,26 +35,6 @@
 
 
 
-        <!--<Label Text="Medicijnoverzicht" HorizontalOptions="Center" FontSize="Large"/>
-        <Label Text="Te bestellen Medicijnen via app" Padding="10"/>
-
-        <ScrollView>
-            <StackLayout>
-                <Label Text="Lijst van Medicijn"/>
-                <ListView x:Name="LvMedicijn" ItemsSource="{Binding MedicijnNaam}" HasUnevenRows="True" ItemTapped="LvMedicijn_ItemTapped">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal" Padding="10">
-                                    <Label Text="{Binding MedicijnNaam}"/>
-                          
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-
-        </ScrollView>-->
+       
     </VerticalStackLayout>
 </ContentPage>
