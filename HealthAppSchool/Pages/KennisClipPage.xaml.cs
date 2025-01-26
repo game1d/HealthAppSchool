@@ -23,6 +23,10 @@ public partial class KennisClipPage : ContentPage
     private void KennisClipView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         var gekozenKennisClip = KennisClipView.SelectedItem as KennisClip;
-        Navigation.PushAsync(new KennisClipContentPage(gekozenKennisClip));
+        if (gekozenKennisClip != null)
+        {
+            Navigation.PushAsync(new KennisClipContentPage(gekozenKennisClip));
+        }
+        KennisClipView.SelectedItem = null;
     }
 }

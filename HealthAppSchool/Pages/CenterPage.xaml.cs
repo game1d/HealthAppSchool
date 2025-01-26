@@ -25,7 +25,7 @@ public partial class CenterPage : ContentPage
 
     private void FysiekeActiviteitButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new FysiekeActiviteitPage());
+        Navigation.PushAsync(new FysiekeActiviteitPage(healthAppDatabase));
     }
 
     private void VerbrandeCaloriënbutton_Clicked(object sender, EventArgs e)

@@ -2,11 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.FysiekeActiviteitPage"
-             Title="FysiekeActiviteitPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="FysiekeActiviteitPage"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui">
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <Label 
+        Text="Welkom op de fysieke activiteitpagina"
+        VerticalOptions="Center" 
+        HorizontalOptions="Center" />
+            <micro:ChartView x:Name="chartView" HeightRequest="600" />
+            <micro:ChartView x:Name="chartDictView" HeightRequest="600"/>
+            <micro:ChartView x:Name="chartDict2View" HeightRequest="600"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

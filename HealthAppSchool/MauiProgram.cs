@@ -1,7 +1,9 @@
 ﻿using HealthAppSchool.Data;
 using HealthAppSchool.Pages;
+using Microcharts.Maui;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace HealthAppSchool
 {
@@ -15,6 +17,8 @@ namespace HealthAppSchool
                 );
             builder
                 .UseMauiApp<App>()
+                .UseMicrocharts()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
