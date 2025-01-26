@@ -46,7 +46,7 @@ namespace HealthAppSchool.Data
                 new Medicijn() { MedicijnId = 3, MedicijnNaam = "Rennie", PatientId = 1 }
                 );
             modelBuilder.Entity<Patient>().HasData(
-                new Patient() { KlantId=1, PatientId=1}
+                new Patient() { KlantId=1, PatientId=1, PatientName = "Jan" }
                 );
             modelBuilder.Entity<StressManagement>().HasData(
                 new StressManagement() { StressManagementId = 1, Name = "StressClip1", Description = "Dit is stressclip 1", Url = "url1" },

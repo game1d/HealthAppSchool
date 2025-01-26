@@ -1,6 +1,7 @@
 ﻿using HealthAppSchool.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,6 +59,17 @@ namespace HealthAppSchool.Data
         }
 
         //fysieke activiteit en verbranding crud
+        public async void CreateFysiekeActiviteit(FysiekeActiviteit fa)
+        {
+            await _context.fysiekeActiviteitDb.AddAsync(fa);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<FysiekeActiviteit>> GetFysiekeActiviteiten()
+        {
+            List<FysiekeActiviteit> activiteiten = await _context.fysiekeActiviteitDb.ToListAsync();
+            return activiteiten;
+        }
 
         //voeding en voedingswaarde crud
 
@@ -66,6 +78,44 @@ namespace HealthAppSchool.Data
         //patient crud
 
         //medicijn en medicijn afspraak crud
+        public async Task<List<Medicijn>>GetPatientByPatientId(int patientId)
+        {
+            return await _context.medicijnDb.Where(m => m.PatientId == patientId).ToListAsync();
+        }
+        public async Task<Medicijn> GetMedicijnById(int medicijnId)
+        {
+            return await _context.medicijnDb.FirstOrDefaultAsync(m => m.MedicijnId == medicijnId);
+        }
+        public async Task CreateMedicijn(Medicijn medicijn)
+        {
+            await _context.medicijnDb.AddAsync(medicijn);
+            await _context.SaveChangesAsync();
+        }
+        public async Task DeleteMedicijn(int medicijnId)
+        {
+            var medicijn = await _context.medicijnDb.FirstOrDefaultAsync(m =>m.MedicijnId ==medicijnId);
+            await _context.SaveChangesAsync();
+        }
+
+        //MedicijnHerinnering
+        public async Task<List<MedicijnHerinnering>> GetMedicijnHerinneringByPatientId(int patientId)
+        {
+            return await _context.Set<MedicijnHerinnering>().Where(mh => mh.PatientId == patientId).ToListAsync();
+        }
+        public async Task<MedicijnHerinnering> GetMedicijnHerinneringById(int HerinneringId)
+        {
+            return await _context.Set<MedicijnHerinnering>().FirstOrDefaultAsync(mh => mh.MedicijnHerinneringId == HerinneringId);
+        }
+        public async Task CreateMedicijnHerinnering(MedicijnHerinnering herinnering)
+        {
+            await _context.Set<MedicijnHerinnering>().AddAsync(herinnering);
+            await _context.SaveChangesAsync();
+        }
+        public async Task DeleteMedicijnHerinnering(int herinneringId)
+        {
+            var herinnering = await _context.Set<MedicijnHerinnering>().FirstOrDefaultAsync(mh => mh.MedicijnHerinneringId == herinneringId);
+            await _context.SaveChangesAsync();
+        }
 
 
         //kennisclips en stressmanagement crud
@@ -80,6 +130,11 @@ namespace HealthAppSchool.Data
             List<StressManagement> result = new List<StressManagement>();
             result = await _context.stressManagementDb.ToListAsync();
             return result;
+        }
+
+        internal async Task<IEnumerable> GetMedicijnByIdAsync()
+        {
+            throw new NotImplementedException();
         }
 
         //consulent crud
