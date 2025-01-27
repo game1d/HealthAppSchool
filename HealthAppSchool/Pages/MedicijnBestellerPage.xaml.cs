@@ -9,11 +9,11 @@ public partial class MedicijnBestellerPage : ContentPage
     HealthAppDatabase healthAppDatabase;
     KlantToken klantToken {  get; set; }
     public List<Medicijn> medicijnen { get; set; } = new List<Medicijn>();
-  
-    public MedicijnBestellerPage(HealthAppDatabase healtAppDatase,KlantToken _klantToken)
-	{
-		InitializeComponent();
-    
+
+    public MedicijnBestellerPage(HealthAppDatabase healtAppDatase)
+    {
+        InitializeComponent();
+        healthAppDatabase = healtAppDatase;
         BindingContext = this;
         healthAppDatabase = healtAppDatase;
         klantToken = _klantToken;
@@ -22,28 +22,35 @@ public partial class MedicijnBestellerPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        HaalMedicijnen();
-    }
-    private async void HaalMedicijnen()
-    {
-        try
-        {
-            var medicijnen = await healthAppDatabase.GetMedicijnByPatientId(klantToken.KlantId);
-            LvMedicijn.ItemsSource = null; 
-            LvMedicijn.ItemsSource = medicijnen;
-        }
-
-        catch (Exception ex)
-        {
-            await DisplayAlert("Fout", $"Fout bij ophalen van medicijn: {ex.Message}", "OK");
-        }
-       
-      
+        medicijnen = await healthAppDatabase.GetMedicijnsIdAsync();
+        LvMedicijn.ItemsSource = medicijnen;
     }
 
-    private void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
 
+    private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        if (e.Item == null)
+            return;
+        var SelectedMedicijn = e.Item as Medicijn;
+        if (SelectedMedicijn != null)
+        {
+            // await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
+            var Bevestigen = await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
+            if (Bevestigen)
+            {
+                try
+                {
+                    await healthAppDatabase.AddMedicijnAsync(SelectedMedicijn);
+                    await DisplayAlert("Goed", "Het medicijn is succesvol besteld", "OK");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Fout", "Het medicijn kan niet besteld worden", "OK");
+                }
+            }
+        ((ListView)sender).SelectedItem = null;
+
+        }
     }
     private void NoodButton_Clicked(object sender, EventArgs e)
     {

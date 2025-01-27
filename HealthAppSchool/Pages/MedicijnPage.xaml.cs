@@ -4,14 +4,13 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace HealthAppSchool.Pages;
 
-public partial class MedicijnPage : ContentPage
+public partial class MedicijnPage: ContentPage
 {
 	public KlantToken klantToken { get; set; }
-
-   
     HealthAppDatabase healthAppDatabase;
-  
-    public MedicijnPage(HealthAppDatabase healtAppDatase, KlantToken _klantToken)
+    // public MedicijnPage(KlantToken _klantToken);
+
+    public MedicijnPage(HealthAppDatabase healtAppDatase)
 	{
 		InitializeComponent();
         healthAppDatabase = healtAppDatase;
