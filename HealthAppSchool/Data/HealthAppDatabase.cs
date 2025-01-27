@@ -78,7 +78,7 @@ namespace HealthAppSchool.Data
         //patient crud
 
         //medicijn en medicijn afspraak crud
-        public async Task<List<Medicijn>>GetPatientByPatientId(int patientId)
+        public async Task<List<Medicijn>>GetMedicijnByPatientId(int patientId)
         {
             return await _context.medicijnDb.Where(m => m.PatientId == patientId).ToListAsync();
         }
@@ -132,10 +132,7 @@ namespace HealthAppSchool.Data
             return result;
         }
 
-        internal async Task<IEnumerable> GetMedicijnByIdAsync()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         //consulent crud
 

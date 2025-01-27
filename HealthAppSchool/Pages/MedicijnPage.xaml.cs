@@ -7,19 +7,19 @@ namespace HealthAppSchool.Pages;
 public partial class MedicijnPage : ContentPage
 {
 	public KlantToken klantToken { get; set; }
-    public MedicijnPage(KlantToken _klantToken)
+
    
     HealthAppDatabase healthAppDatabase;
   
-    public MedicijnPage(HealthAppDatabase healtAppDatase)
+    public MedicijnPage(HealthAppDatabase healtAppDatase, KlantToken _klantToken)
 	{
 		InitializeComponent();
         healthAppDatabase = healtAppDatase;
+        klantToken = _klantToken;
         BindingContext = this;
         HaalPatientData();
     }
-        klantToken = _klantToken;
-	}
+        
 
     public async void HaalPatientData()
     {
@@ -37,7 +37,7 @@ public partial class MedicijnPage : ContentPage
 
     private async void bestelbtn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MedicijnBestellerPage(healthAppDatabase));
+        await Navigation.PushAsync(new MedicijnBestellerPage(healthAppDatabase,klantToken));
        
     }
 

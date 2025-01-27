@@ -7,13 +7,16 @@ namespace HealthAppSchool.Pages;
 public partial class MedicijnBestellerPage : ContentPage
 {
     HealthAppDatabase healthAppDatabase;
+    KlantToken klantToken {  get; set; }
     public List<Medicijn> medicijnen { get; set; } = new List<Medicijn>();
   
-    public MedicijnBestellerPage(HealthAppDatabase healtAppDatase)
+    public MedicijnBestellerPage(HealthAppDatabase healtAppDatase,KlantToken _klantToken)
 	{
 		InitializeComponent();
     
         BindingContext = this;
+        healthAppDatabase = healtAppDatase;
+        klantToken = _klantToken;
         HaalMedicijnen();
     }
     protected override async void OnAppearing()
@@ -25,7 +28,7 @@ public partial class MedicijnBestellerPage : ContentPage
     {
         try
         {
-            var medicijnen = await healthAppDatabase.GetMedicijnByIdAsync();
+            var medicijnen = await healthAppDatabase.GetMedicijnByPatientId(klantToken.KlantId);
             LvMedicijn.ItemsSource = null; 
             LvMedicijn.ItemsSource = medicijnen;
         }
