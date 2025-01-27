@@ -36,30 +36,30 @@ public partial class CenterPage : ContentPage
    
     private void VoedingsInnameButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new VoedingInnamePage());
+        Navigation.PushAsync(new VoedingInnamePage(healthAppDatabase, klantToken));
     }
 
     private void VoedingsWaardeButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new VoedingWaardePage());
+        Navigation.PushAsync(new VoedingWaardePage(healthAppDatabase, klantToken));
     }
     private void SlaapPatroonButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new SlaapPatroonPage());
+        Navigation.PushAsync(new SlaapPatroonPage(healthAppDatabase, klantToken));
     }
     private void KennisClipButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new KennisClipPage(healthAppDatabase));
+        Navigation.PushAsync(new KennisClipPage(healthAppDatabase, klantToken));
     }
 
     private void StressManagementButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new StressManagementPage(healthAppDatabase));
+        Navigation.PushAsync(new StressManagementPage(healthAppDatabase, klantToken));
     }
 
     private void MedicijnButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MedicijnPage(healthAppDatabase));
+        Navigation.PushAsync(new MedicijnPage(healthAppDatabase, klantToken));
     }
 
 
@@ -70,7 +70,7 @@ public partial class CenterPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
     }
     protected override bool OnBackButtonPressed()
     {

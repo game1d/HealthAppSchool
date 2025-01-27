@@ -30,7 +30,7 @@ namespace HealthAppSchool
                     {
                         healthAppDatabase.CreateKlantToken(inlogKlant, HashMaker.ToSHA512(WachtwoordInput.Text));
                         KlantToken klantToken2 = healthAppDatabase.GetKlantToken();
-                        Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken2));
+                        await Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken2));
                     }
                     else { await DisplayAlert("Verkeerd wachtwoord", "Het wachtwoord dat is ingevuld klopt niet.", "ok"); }
                 }
@@ -39,7 +39,7 @@ namespace HealthAppSchool
             catch (Exception excep) 
             { await DisplayAlert("Inlogerror", $"{excep}", "ok");  }
         }
-        protected override async void OnNavigatedTo(NavigatedToEventArgs e)
+        protected override void OnNavigatedTo(NavigatedToEventArgs e)
         {
             base.OnNavigatedTo(e);
             WachtwoordInput.Text = string.Empty;
@@ -48,7 +48,7 @@ namespace HealthAppSchool
 
         private async void RegistreerButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AanmeldPage(healthAppDatabase));
+            await Navigation.PushAsync(new AanmeldPage(healthAppDatabase));
         }
     }
 }

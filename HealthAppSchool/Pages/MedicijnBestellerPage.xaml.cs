@@ -10,13 +10,13 @@ public partial class MedicijnBestellerPage : ContentPage
     KlantToken klantToken {  get; set; }
     public List<Medicijn> medicijnen { get; set; } = new List<Medicijn>();
 
-    public MedicijnBestellerPage(HealthAppDatabase healtAppDatase)
+    public MedicijnBestellerPage(HealthAppDatabase healtAppDatase, KlantToken _klantToken)
     {
         InitializeComponent();
         healthAppDatabase = healtAppDatase;
         BindingContext = this;
-        healthAppDatabase = healtAppDatase;
-        //klantToken = _klantToken;
+
+        klantToken = _klantToken;
         //HaalMedicijnen();
     }
     protected override async void OnAppearing()
@@ -45,7 +45,7 @@ public partial class MedicijnBestellerPage : ContentPage
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("Fout", "Het medicijn kan niet besteld worden", "OK");
+                    await DisplayAlert("Fout", $"Het medicijn kan niet besteld worden.{ex}", "OK");
                 }
             }
         ((ListView)sender).SelectedItem = null;
@@ -59,7 +59,7 @@ public partial class MedicijnBestellerPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
     }
 
 

@@ -25,8 +25,7 @@
                 HorizontalOptions="Center"
                 FontSize="Body"/>
             <toolkit:MediaElement
-                x:Name="KennisClipFilmPlayer"
-                 
+                x:Name="KennisClipFilmPlayer" ShouldAutoPlay="True"
                 HeightRequest="300"/>
         </VerticalStackLayout>
     </ScrollView>

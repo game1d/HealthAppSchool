@@ -1,17 +1,22 @@
 using CommunityToolkit.Maui.Views;
+using HealthAppSchool.Data;
 using HealthAppSchool.Models;
 
 namespace HealthAppSchool.Pages;
 
 public partial class KennisClipContentPage : ContentPage
 {
-	public string kennisClipNaam {  get; set; }
+    public HealthAppDatabase healthAppDatabase { get; set; }
+    public KlantToken klantToken { get; set; }
+    public string kennisClipNaam {  get; set; }
 	public string KennisClipBeschrijving {  get; set; }
 
 	
-	public KennisClipContentPage(KennisClip GekozenKennisClip)
+	public KennisClipContentPage(KennisClip GekozenKennisClip, HealthAppDatabase _healthAppDatabase, KlantToken _klantToken)
 	{
 		InitializeComponent();
+        healthAppDatabase = _healthAppDatabase;
+        klantToken = _klantToken;
 		kennisClipNaam = GekozenKennisClip.Name;
 		KennisClipBeschrijving = GekozenKennisClip.Description;
         try
@@ -31,6 +36,6 @@ public partial class KennisClipContentPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
     }
 }

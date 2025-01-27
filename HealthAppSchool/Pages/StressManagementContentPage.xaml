@@ -25,8 +25,7 @@
             HorizontalOptions="Center"
             FontSize="Body"/>
             <toolkit:MediaElement
-                x:Name="StressManagementFilmPlayer"
-
+                x:Name="StressManagementFilmPlayer" ShouldAutoPlay="True"
                 HeightRequest="400"/>
         </VerticalStackLayout>
     </ScrollView>

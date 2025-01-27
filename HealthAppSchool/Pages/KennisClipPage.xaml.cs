@@ -5,11 +5,15 @@ namespace HealthAppSchool.Pages;
 
 public partial class KennisClipPage : ContentPage
 {
-    HealthAppDatabase healthAppDatabase;
-    public KennisClipPage(HealthAppDatabase dataBase)
+    
+    
+    HealthAppDatabase healthAppDatabase { get; set; }
+    KlantToken klantToken {  get; set; }
+    public KennisClipPage(HealthAppDatabase dataBase, KlantToken _klantToken)
 	{
         healthAppDatabase = dataBase;
         InitializeComponent();
+        klantToken = _klantToken;
     }
 
     protected override async void OnNavigatedTo(NavigatedToEventArgs e)
@@ -25,7 +29,7 @@ public partial class KennisClipPage : ContentPage
         var gekozenKennisClip = KennisClipView.SelectedItem as KennisClip;
         if (gekozenKennisClip != null)
         {
-            Navigation.PushAsync(new KennisClipContentPage(gekozenKennisClip));
+            Navigation.PushAsync(new KennisClipContentPage(gekozenKennisClip, healthAppDatabase, klantToken));
         }
         KennisClipView.SelectedItem = null;
     }
@@ -36,6 +40,6 @@ public partial class KennisClipPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
     }
 }

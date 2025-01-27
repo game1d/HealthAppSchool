@@ -16,7 +16,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Button x:Name="backButton" Text="uitloggen" Clicked="backButton_Clicked"/>
+        <Button x:Name="backButton" Text="uitloggen" Clicked="backButton_Clicked" WidthRequest="250"/>
         <Grid Padding="20" ColumnSpacing="50" HorizontalOptions="Center" RowSpacing="15">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -30,14 +30,14 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="160"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="FysiekeActiviteitButton" Text="Fysieke activiteit" Grid.Row="0" Grid.Column="0" Clicked="FysiekeActiviteitButton_Clicked"/>
-            <Button x:Name="VerbrandeCaloriënbutton" Text="Verbrande caloriën" Grid.Row="0" Grid.Column="1" Clicked="VerbrandeCaloriënbutton_Clicked"/>
-            <Button x:Name="VoedingsInnameButton" Text="Voedings inname" Grid.Row="1" Grid.Column="0" Clicked="VoedingsInnameButton_Clicked"/>
-            <Button x:Name="VoedingsWaardeButton" Text="Voedingswaarde" Grid.Row="1" Grid.Column="1" Clicked="VoedingsWaardeButton_Clicked"/>
-            <Button x:Name="MedicijnButton" Text="Medicijn" Grid.Row="2" Grid.Column="1" Clicked="MedicijnButton_Clicked"/>
-            <Button x:Name="SlaapPatroonButton" Text="Slaappatroon" Grid.Row="2" Grid.Column="0" Clicked="SlaapPatroonButton_Clicked"/>
-            <Button x:Name="KennisClipButton" Text="Kennisclips" Grid.Row="3" Grid.Column="0" Clicked="KennisClipButton_Clicked"/>
-            <Button x:Name="StressManagementButton" Text="Stressmanagement" Grid.Row="3" Grid.Column="1" Clicked="StressManagementButton_Clicked"/>
+            <Button x:Name="FysiekeActiviteitButton" Text="Fysieke activiteit" Grid.Row="0" Grid.Column="0" Clicked="FysiekeActiviteitButton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="VerbrandeCaloriënbutton" Text="Verbrande caloriën" Grid.Row="0" Grid.Column="1" Clicked="VerbrandeCaloriënbutton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="VoedingsInnameButton" Text="Voedings inname" Grid.Row="1" Grid.Column="0" Clicked="VoedingsInnameButton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="VoedingsWaardeButton" Text="Voedingswaarde" Grid.Row="1" Grid.Column="1" Clicked="VoedingsWaardeButton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="MedicijnButton" Text="Medicijn" Grid.Row="2" Grid.Column="1" Clicked="MedicijnButton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="SlaapPatroonButton" Text="Slaappatroon" Grid.Row="2" Grid.Column="0" Clicked="SlaapPatroonButton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="KennisClipButton" Text="Kennisclips" Grid.Row="3" Grid.Column="0" Clicked="KennisClipButton_Clicked" BackgroundColor="ForestGreen"/>
+            <Button x:Name="StressManagementButton" Text="Stressmanagement" Grid.Row="3" Grid.Column="1" Clicked="StressManagementButton_Clicked" BackgroundColor="ForestGreen"/>
         </Grid>
         
     </VerticalStackLayout>

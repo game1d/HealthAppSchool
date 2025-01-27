@@ -9,8 +9,51 @@
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+                Text="Settings"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+        <Label Text="Voornaam" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry
+          
+                x:Name="VoorNaamEntry"
+                WidthRequest="250"/>
+        <Button Text="Verander" x:Name="VoorNaamButton" Clicked="VoorNaamButton_Clicked" WidthRequest="150" BackgroundColor="Tomato"/>
+        <Label Text="Achternaam" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry
+            
+                x:Name="AchterNaamEntry"
+                WidthRequest="250"/>
+        <Button Text="Verander" x:Name="AchterNaamButton" Clicked="AchterNaamButton_Clicked" WidthRequest="150" BackgroundColor="Tomato"/>
+        <Label Text="Email" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry
+        
+                x:Name="EmailEntry"
+                WidthRequest="250"/>
+        <Button Text="Verander" x:Name="EmailButton" Clicked="EmailButton_Clicked" WidthRequest="150" BackgroundColor="Tomato"/>
+        <Label Text="Oud wachtwoord" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry
+                WidthRequest="250"
+                x:Name="OudWachtwoordEntry"/>
+        <Label Text="Nieuw wachtwoord" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+        <Entry
+                WidthRequest="250"
+                x:Name="WachtwoordEntry"/>
+        <Button Text="Verander" x:Name="WachtwoordButton" Clicked="WachtwoordButton_Clicked" WidthRequest="150" BackgroundColor="Tomato"/>
+        <Label Text="PatientToggle nog niet geimplementeerd"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"/>
+        <Switch
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

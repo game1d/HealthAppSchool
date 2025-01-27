@@ -32,6 +32,23 @@ namespace HealthAppSchool.Data
             await _context.KlantTokenDb.AddAsync(klantToken);
             await _context.SaveChangesAsync();
         }
+        public async Task UpdateKlantTokenEmail(KlantToken KlantToken, string Email)
+        {
+            KlantToken klantToken = KlantToken;
+
+            klantToken.KlantEmail = Email;
+            _context.KlantTokenDb.Update(klantToken);
+            await _context.SaveChangesAsync();
+        }
+        public async Task UpdateKlantTokenWachtwoord(KlantToken KlantToken, string wachtwoord)
+        {
+            KlantToken klantToken = KlantToken;
+
+            klantToken.KlantWachtwoord = wachtwoord;
+            _context.KlantTokenDb.Update(klantToken);
+            await _context.SaveChangesAsync();
+        }
+
         public async void DeleteKlantToken(KlantToken klantToken)
         {
             _context.KlantTokenDb.Remove(klantToken);
@@ -49,6 +66,51 @@ namespace HealthAppSchool.Data
                 { Result = k; break; }
             }
             return Result;
+        }
+
+        public async Task<Klant> GetKlantOnId(int Id)
+        {
+            Klant Result = new Klant();
+            List<Klant> klanten = await _context.KlantDb.ToListAsync();
+            foreach (Klant k in klanten)
+            {
+                if (k.KlantId == Id)
+                { Result = k; break; }
+            }
+            return Result;
+        }
+
+        public async Task UpdateKlantVoornaam(int KlantId,string nieuweVoornaam)
+        {
+            Klant klant = new Klant();
+            klant = await GetKlantOnId(KlantId);
+            klant.Voornaam = nieuweVoornaam;
+            _context.KlantDb.Update(klant);
+            await _context.SaveChangesAsync();
+        }
+        public async Task UpdateKlantAchternaam(int KlantId, string nieuweAchternaam)
+        {
+            Klant klant = new Klant();
+            klant = await GetKlantOnId(KlantId);
+            klant.Achternaam = nieuweAchternaam;
+            _context.KlantDb.Update(klant);
+            await _context.SaveChangesAsync();
+        }
+        public async Task UpdateKlantEmail(int KlantId, string Email)
+        {
+            Klant klant = new Klant();
+            klant = await GetKlantOnId(KlantId);
+            klant.Email = Email;
+            _context.KlantDb.Update(klant);
+            await _context.SaveChangesAsync();
+        }
+        public async Task UpdateKlantWachtWoord(int KlantId, string Wachtwoord)
+        {
+            Klant klant = new Klant();
+            klant = await GetKlantOnId(KlantId);
+            klant.WachtWoord = Wachtwoord;
+            _context.KlantDb.Update(klant);
+            await _context.SaveChangesAsync();
         }
 
         //Nieuwe Klant aanmaken en opslaan in de database

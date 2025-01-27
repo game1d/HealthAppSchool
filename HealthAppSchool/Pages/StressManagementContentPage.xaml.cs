@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Views;
+using HealthAppSchool.Data;
 using HealthAppSchool.Models;
 using System;
 
@@ -6,12 +7,16 @@ namespace HealthAppSchool.Pages;
 
 public partial class StressManagementContentPage : ContentPage
 {
+    public HealthAppDatabase healthAppDatabase { get; set; }
+    public KlantToken klantToken { get; set; }
     public string StressmanagementNaam { get; set; }
     public string StressmanagementBeschrijving { get; set; }
 
-    public StressManagementContentPage(StressManagement stressManagement)
+    public StressManagementContentPage(StressManagement stressManagement, HealthAppDatabase _healthAppDatabase, KlantToken _klantToken)
 	{
 		InitializeComponent();
+        healthAppDatabase = _healthAppDatabase;
+        klantToken = _klantToken;
         StressmanagementNaam = stressManagement.Name;
         StressmanagementBeschrijving = stressManagement.Description;
         try 
@@ -31,6 +36,6 @@ public partial class StressManagementContentPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
     }
 }

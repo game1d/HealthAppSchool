@@ -5,11 +5,13 @@ namespace HealthAppSchool.Pages;
 
 public partial class StressManagementPage : ContentPage
 {
-    HealthAppDatabase healthAppDatabase;
-    public StressManagementPage(HealthAppDatabase dataBase)
+    HealthAppDatabase healthAppDatabase { get; set; }
+    KlantToken klantToken { get; set; }
+    public StressManagementPage(HealthAppDatabase dataBase, KlantToken _klantToken)
 	{
         healthAppDatabase = dataBase;
         InitializeComponent();
+        klantToken = _klantToken;
 	}
     protected override async void OnNavigatedTo(NavigatedToEventArgs e)
     {
@@ -24,7 +26,7 @@ public partial class StressManagementPage : ContentPage
     {
         var gekozenStressmanagementClip = StressmanagementClipView.SelectedItem as StressManagement;
         if (gekozenStressmanagementClip != null) 
-        { Navigation.PushAsync(new StressManagementContentPage(gekozenStressmanagementClip)); }
+        { Navigation.PushAsync(new StressManagementContentPage(gekozenStressmanagementClip, healthAppDatabase, klantToken)); }
         StressmanagementClipView.SelectedItem = null;
     }
     private void NoodButton_Clicked(object sender, EventArgs e)
@@ -34,7 +36,7 @@ public partial class StressManagementPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
     }
 
 

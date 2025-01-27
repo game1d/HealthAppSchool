@@ -23,6 +23,7 @@ namespace HealthAppSchool.Data
         public DbSet<Medicijn> medicijnDb {  get; set; }
 
         public DbSet<FysiekeActiviteit> fysiekeActiviteitDb { get; set; }
+        
 
         public DbSet<KennisClip> KennisClipDb { get; set; }
         public DbSet<StressManagement> stressManagementDb { get; set; }
