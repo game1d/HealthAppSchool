@@ -31,7 +31,7 @@ public partial class MedicijnBestellerPage : ContentPage
         var SelectedMedicijn = e.Item as Medicijn;
         if (SelectedMedicijn != null)
         {
-            // await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
+            await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
             var Bevestigen = await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
             if (Bevestigen)
             {

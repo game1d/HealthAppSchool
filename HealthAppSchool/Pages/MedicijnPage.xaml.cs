@@ -15,23 +15,11 @@ public partial class MedicijnPage: ContentPage
 		InitializeComponent();
         healthAppDatabase = healtAppDatase;
         BindingContext = this;
-        HaalPatientData();
+       
         klantToken = klantToken;
     }
 
-    public async void HaalPatientData()
-    {
-       
-        //var patient = await _healthAppDatabase.GetPatientByPatientId(PatientId);
-        //if (patient != null)
-        //{
-        //    WelcomeLabel.Text = $"Welkom {Patient.PatientName}";
-        //}
-        //else
-        //{
-        //    WelcomeLabel.Text = "Patient niet gevonden.";
-        //}
-    }
+   
 
     private async void bestelbtn_Clicked(object sender, EventArgs e)
     {
@@ -41,22 +29,6 @@ public partial class MedicijnPage: ContentPage
 
     private async void Medicijnplannerbtn_Clicked(object sender, EventArgs e)
     {
-       // await Navigation.PushAsync(new MedicijnPlannerPage(healthAppDatabase));
+        await Navigation.PushAsync(new MedicijnPlannerPage(healthAppDatabase));
     }
-
-
-
-
-    //private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
-    //{
-    //    if (e.Item == null)
-    //        return;
-
-    //    var selectedMedicijn = e.Item as Medicijn;
-    //    if (selectedMedicijn != null)
-    //    {
-    //       // await Navigation.PushAsync(new MedicijnBestellerPage(Database, selectedMedicijn));
-    //    }
-    //    ((ListView)sender).SelectedItem = null;
-    //}
 }

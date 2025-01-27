@@ -45,6 +45,13 @@ namespace HealthAppSchool.Data
                 new Medicijn() { MedicijnId = 2, MedicijnNaam = "Ibuprofen", PatientId = 1 },
                 new Medicijn() { MedicijnId = 3, MedicijnNaam = "Rennie", PatientId = 1 }
                 );
+            _ = modelBuilder.Entity<MedicijnHerinnering>().HasData(
+                
+                //new MedicijnHerinnering() { MedicijnHerinneringId = 1, MedicijnId = 1, MedicijnNaam = "Paracetamol", PatientId = 1 },
+                //new MedicijnHerinnering() { MedicijnHerinneringId = 2, MedicijnId = 2, MedicijnNaam = "Ibuprofen", PatientId = 1 },
+                //new MedicijnHerinnering() { MedicijnHerinneringId = 3, MedicijnId = 3, MedicijnNaam = "Rennie", PatientId = 1 }
+
+                );
             modelBuilder.Entity<Patient>().HasData(
                 new Patient() { KlantId=1, PatientId=1, PatientName = "Jan" }
                 );
