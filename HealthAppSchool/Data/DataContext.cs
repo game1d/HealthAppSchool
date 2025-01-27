@@ -32,13 +32,13 @@ namespace HealthAppSchool.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Klant>().HasData(
-                new Klant("Jan", "Mango", "JanMango@live.nl", "Wachtwoord1") { KlantId = 1 }
+                new Klant("Jan", "Mango", "JanMango@live.nl", HashMaker.ToSHA512("Wachtwoord1")) { KlantId = 1 }
                 );
 
             modelBuilder.Entity<KennisClip>().HasData(
-                new KennisClip() { KennisClipId = 1, Name = "clip1", Description = "Dit is kennisclip 1", Url = "url1" },
-                new KennisClip() { KennisClipId = 2, Name = "clip2", Description = "Dit is kennisclip 2", Url = "url2" },
-                new KennisClip() { KennisClipId = 3, Name = "clip3", Description = "Dit is kennisclip 3", Url = "url3" }
+                new KennisClip() { KennisClipId = 1, Name = "Bloedprikken", Description = "Met bloedprikken kan er veel informatie verzameld worden over de staat van de patiënt", Url = "bloedprikken.mp4" },
+                new KennisClip() { KennisClipId = 2, Name = "Schildpadhoofd", Description = "Clipje met geluid", Url = "schildpadhoofd.mp4" },
+                new KennisClip() { KennisClipId = 3, Name = "clip3", Description = "Dit is kennisclip 3", Url = "misurl" }
                 );
             modelBuilder.Entity<Medicijn>().HasData(
                 new Medicijn() { MedicijnId = 1, MedicijnNaam = "Paracetamol", PatientId=1 },
@@ -49,8 +49,8 @@ namespace HealthAppSchool.Data
                 new Patient() { KlantId=1, PatientId=1, PatientName = "Jan" }
                 );
             modelBuilder.Entity<StressManagement>().HasData(
-                new StressManagement() { StressManagementId = 1, Name = "StressClip1", Description = "Dit is stressclip 1", Url = "url1" },
-                new StressManagement() { StressManagementId = 2, Name = "StressClip2", Description = "Dit is stressclip 2", Url = "url2" }
+                new StressManagement() { StressManagementId = 1, Name = "Rennen", Description = "Beweging zorgt ervoor dat het lichaam stofjes produceert waardoor jij je beter voelt.\n Als je het lastig vindt om discipline te houden zoek dan een maatje om je te motiveren.", Url = "rennen.mp4" },
+                new StressManagement() { StressManagementId = 2, Name = "StressClip2", Description = "Dit is stressclip 2", Url = "" }
                 );
 
             modelBuilder.Entity<FysiekeActiviteit>().HasData(

@@ -11,7 +11,7 @@ public partial class CenterPage : ContentPage
     public CenterPage(HealthAppDatabase dataBase, KlantToken _klantToken)
 	{
         healthAppDatabase = dataBase;
-        this.klantToken = _klantToken;
+        klantToken = _klantToken;
         InitializeComponent();
         
 	}
@@ -25,24 +25,28 @@ public partial class CenterPage : ContentPage
 
     private void FysiekeActiviteitButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new FysiekeActiviteitPage(healthAppDatabase));
+        Navigation.PushAsync(new FysiekeActiviteitPage(healthAppDatabase, klantToken));
     }
 
     private void VerbrandeCaloriënbutton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new VerbrandeCalorienPage());
+        Navigation.PushAsync(new VerbrandeCalorienPage(healthAppDatabase, klantToken));
     }
 
-    private void NoodButton_Clicked(object sender, EventArgs e)
+   
+    private void VoedingsInnameButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new NoodKnopPage());
+        Navigation.PushAsync(new VoedingInnamePage());
     }
 
-    private void SettingsButton_Clicked(object sender, EventArgs e)
+    private void VoedingsWaardeButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage());
+        Navigation.PushAsync(new VoedingWaardePage());
     }
-
+    private void SlaapPatroonButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new SlaapPatroonPage());
+    }
     private void KennisClipButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new KennisClipPage(healthAppDatabase));
@@ -56,5 +60,21 @@ public partial class CenterPage : ContentPage
     private void MedicijnButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MedicijnPage(healthAppDatabase,klantToken));
+    }
+
+
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
+
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
+    }
+    protected override bool OnBackButtonPressed()
+    {
+        // Return true to prevent back button 
+        return true;
     }
 }

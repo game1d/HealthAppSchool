@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.StressManagementPage"
              Title="StressManagementPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked" IconImageSource="redbutton.png"/>
+        <ToolbarItem 
+                x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ListView x:Name="StressmanagementClipView" RowHeight="150" ItemSelected="StressmanagementClipView_ItemSelected" >
         <ListView.ItemTemplate>
             <DataTemplate>

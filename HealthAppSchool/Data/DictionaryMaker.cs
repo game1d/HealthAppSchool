@@ -10,10 +10,10 @@ namespace HealthAppSchool.Data
     public  class DictionaryMaker
     {
         // Dit zou gebruikt kunnen worden om meerdere geregistreerde activiteiten bij elkaar op te tellen indien gewenst.
-        public async Task<Dictionary<DateOnly,Dictionary<string,int>>> FysiekeActiviteitenDictionary(HealthAppDatabase appDatabase)
+        public async Task<Dictionary<DateOnly,Dictionary<string,int>>> FysiekeActiviteitenDictionary(HealthAppDatabase appDatabase, int klantId)
         {
             var result = new Dictionary<DateOnly, Dictionary<string,int>>();
-            List<FysiekeActiviteit> fysiekeActiviteitenLijst = await appDatabase.GetFysiekeActiviteiten();
+            List<FysiekeActiviteit> fysiekeActiviteitenLijst = await appDatabase.GetFysiekeActiviteitenOnKlant(klantId);
             List<DateOnly> datumlijst = new List<DateOnly>();
             List<string> activiteitenList = new List<string>() {"Rennen", "Zwemmen", "Fietsen" };
             foreach (FysiekeActiviteit activiteit in fysiekeActiviteitenLijst)

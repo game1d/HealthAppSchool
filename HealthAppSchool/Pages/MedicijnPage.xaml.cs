@@ -45,6 +45,15 @@ public partial class MedicijnPage : ContentPage
     {
        // await Navigation.PushAsync(new MedicijnPlannerPage(healthAppDatabase));
     }
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
+
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
+    }
 
 
 

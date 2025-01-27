@@ -2,20 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.KennisClipContentPage"
-             Title="KenisClipContentPage">
-    <VerticalStackLayout>
-        <Label
-            x:Name="ClipNaam"
-            Text="{Binding kennisClipNaam}"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            FontSize="Title"/>
-        <Label
-    x:Name="ClipBeschrijving"
-    Text="{Binding KennisClipBeschrijving}"
-    VerticalOptions="Center"
-    HorizontalOptions="Center"
-    FontSize="Body"/>
+             Title="KenisClipContentPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked" IconImageSource="redbutton.png"/>
+        <ToolbarItem 
+                x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                x:Name="ClipNaam"
+                Text="{Binding kennisClipNaam}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="Title"/>
+            <Label
+                x:Name="ClipBeschrijving"
+                Text="{Binding KennisClipBeschrijving}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="Body"/>
+            <toolkit:MediaElement
+                x:Name="KennisClipFilmPlayer"
+                 
+                HeightRequest="300"/>
+        </VerticalStackLayout>
+    </ScrollView>
 
-    </VerticalStackLayout>
 </ContentPage>

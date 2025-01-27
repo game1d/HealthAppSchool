@@ -9,16 +9,17 @@ namespace HealthAppSchool.Pages;
 public partial class FysiekeActiviteitPage : ContentPage
 {
     HealthAppDatabase healthAppDatabase;
+    KlantToken klantToken{ get; set; }
     List<ChartEntry> entries1 { get; set; }
     List<ChartEntry> entries2 { get; set; }
     List<ChartEntry> entries3 { get; set; }
     DictionaryMaker dictionaryMaker { get; set; }
-    public FysiekeActiviteitPage(HealthAppDatabase dataBase)
+    public FysiekeActiviteitPage(HealthAppDatabase dataBase, KlantToken _klantToken)
     {
         InitializeComponent();
         healthAppDatabase = dataBase;
         dictionaryMaker = new DictionaryMaker();
-
+        klantToken = _klantToken;
     }
 
     protected override async void OnNavigatedTo(NavigatedToEventArgs e)
@@ -31,7 +32,7 @@ public partial class FysiekeActiviteitPage : ContentPage
     }
     public async void prepChart1()
     {
-        List<FysiekeActiviteit> activ = await healthAppDatabase.GetFysiekeActiviteiten();
+        List<FysiekeActiviteit> activ = await healthAppDatabase.GetFysiekeActiviteitenOnKlant(klantToken.KlantId);
         entries1 = new List<ChartEntry>();
         foreach (FysiekeActiviteit fys in activ)
         {
@@ -72,7 +73,7 @@ public partial class FysiekeActiviteitPage : ContentPage
 
     public async void prepChart2() 
     {
-        var fysiekdictionary = await dictionaryMaker.FysiekeActiviteitenDictionary(healthAppDatabase);
+        var fysiekdictionary = await dictionaryMaker.FysiekeActiviteitenDictionary(healthAppDatabase, klantToken.KlantId);
         entries2 = new List<ChartEntry>();
         List<DateOnly> outerKeys = fysiekdictionary.Keys.ToList();
         foreach (DateOnly outerKey in outerKeys)
@@ -117,7 +118,7 @@ public partial class FysiekeActiviteitPage : ContentPage
     }
     public async void prepChart3() 
     {
-        var fysiekdictionary = await dictionaryMaker.FysiekeActiviteitenDictionary(healthAppDatabase);
+        var fysiekdictionary = await dictionaryMaker.FysiekeActiviteitenDictionary(healthAppDatabase, klantToken.KlantId);
         entries3 = new List<ChartEntry>();
         List<DateOnly> outerKeys = fysiekdictionary.Keys.ToList();
         foreach (DateOnly outerKey in outerKeys)
@@ -161,5 +162,14 @@ public partial class FysiekeActiviteitPage : ContentPage
             ValueLabelOrientation = Orientation.Horizontal
         };
         chartDict2View.Chart = chart3;
+    }
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
+
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
     }
 }

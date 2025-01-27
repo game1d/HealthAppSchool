@@ -65,10 +65,18 @@ namespace HealthAppSchool.Data
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<FysiekeActiviteit>> GetFysiekeActiviteiten()
+        public async Task<List<FysiekeActiviteit>> GetFysiekeActiviteitenOnKlant(int klantId)
         {
+            List<FysiekeActiviteit> result= new List<FysiekeActiviteit>();
             List<FysiekeActiviteit> activiteiten = await _context.fysiekeActiviteitDb.ToListAsync();
-            return activiteiten;
+            foreach (FysiekeActiviteit act  in activiteiten)
+            {
+                if (act.KlantId == klantId)
+                {
+                    result.Add(act);
+                }
+            }
+            return result;
         }
 
         //voeding en voedingswaarde crud

@@ -27,6 +27,15 @@ public partial class StressManagementPage : ContentPage
         { Navigation.PushAsync(new StressManagementContentPage(gekozenStressmanagementClip)); }
         StressmanagementClipView.SelectedItem = null;
     }
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
 
-    
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
+    }
+
+
 }

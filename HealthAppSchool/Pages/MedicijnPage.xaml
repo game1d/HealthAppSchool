@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.MedicijnPage"
              Title="MedicijnPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked" IconImageSource="redbutton.png"/>
+        <ToolbarItem 
+                x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
+    </ContentPage.ToolbarItems>
 
     <VerticalStackLayout Padding="20" Spacing="20">
         <Label  Text="Welkom" x:Name="welkomText" HorizontalOptions="Center" FontSize="Header"/>

@@ -29,4 +29,13 @@ public partial class KennisClipPage : ContentPage
         }
         KennisClipView.SelectedItem = null;
     }
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
+
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
+    }
 }

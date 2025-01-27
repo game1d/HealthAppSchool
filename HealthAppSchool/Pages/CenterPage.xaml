@@ -6,7 +6,7 @@
              NavigationPage.HasBackButton="False">
     <ContentPage.ToolbarItems>
         <ToolbarItem 
-            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked"/>
+            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked" IconImageSource="redbutton.png"/>
     <ToolbarItem 
                 x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
     </ContentPage.ToolbarItems>
@@ -16,7 +16,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Button x:Name="backButton" Text="Back" Clicked="backButton_Clicked"/>
+        <Button x:Name="backButton" Text="uitloggen" Clicked="backButton_Clicked"/>
         <Grid Padding="20" ColumnSpacing="50" HorizontalOptions="Center" RowSpacing="15">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -27,15 +27,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="500"/>
-                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="160"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="FysiekeActiviteitButton" Text="Fysieke activiteit" Grid.Row="0" Grid.Column="0" Clicked="FysiekeActiviteitButton_Clicked"/>
             <Button x:Name="VerbrandeCaloriënbutton" Text="Verbrande caloriën" Grid.Row="0" Grid.Column="1" Clicked="VerbrandeCaloriënbutton_Clicked"/>
-            <Button Text="Voedings inname" Grid.Row="1" Grid.Column="0"/>
-            <Button Text="Voedingswaarde" Grid.Row="1" Grid.Column="1"/>
+            <Button x:Name="VoedingsInnameButton" Text="Voedings inname" Grid.Row="1" Grid.Column="0" Clicked="VoedingsInnameButton_Clicked"/>
+            <Button x:Name="VoedingsWaardeButton" Text="Voedingswaarde" Grid.Row="1" Grid.Column="1" Clicked="VoedingsWaardeButton_Clicked"/>
             <Button x:Name="MedicijnButton" Text="Medicijn" Grid.Row="2" Grid.Column="1" Clicked="MedicijnButton_Clicked"/>
-            <Button Text="Slaappatroon" Grid.Row="2" Grid.Column="0"/>
+            <Button x:Name="SlaapPatroonButton" Text="Slaappatroon" Grid.Row="2" Grid.Column="0" Clicked="SlaapPatroonButton_Clicked"/>
             <Button x:Name="KennisClipButton" Text="Kennisclips" Grid.Row="3" Grid.Column="0" Clicked="KennisClipButton_Clicked"/>
             <Button x:Name="StressManagementButton" Text="Stressmanagement" Grid.Row="3" Grid.Column="1" Clicked="StressManagementButton_Clicked"/>
         </Grid>

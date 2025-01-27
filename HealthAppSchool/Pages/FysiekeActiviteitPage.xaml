@@ -4,6 +4,12 @@
              x:Class="HealthAppSchool.Pages.FysiekeActiviteitPage"
              Title="FysiekeActiviteitPage"
              xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked" IconImageSource="redbutton.png"/>
+        <ToolbarItem 
+                x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <VerticalStackLayout>
 

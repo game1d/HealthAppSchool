@@ -4,9 +4,6 @@
              x:Class="HealthAppSchool.Pages.NoodKnopPage"
              Title="NoodKnopPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button x:Name="Noodknop" BackgroundColor="Red" Text="Noodknop" TextColor="White" FontSize="Large" HeightRequest="500" WidthRequest="500" HorizontalOptions="Center" Clicked="Noodknop_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -26,9 +26,9 @@ namespace HealthAppSchool
                 {
                     Klant inlogKlant = await healthAppDatabase.GetKlantOnEmail(EmailInput.Text);
                     if (inlogKlant.Email == null) { await DisplayAlert("Verkeerd email", "Het email dat is ingevuld bestaat niet.", "ok"); }
-                    else if (inlogKlant.WachtWoord == WachtwoordInput.Text)
+                    else if (inlogKlant.WachtWoord == HashMaker.ToSHA512(WachtwoordInput.Text))
                     {
-                        healthAppDatabase.CreateKlantToken(inlogKlant, WachtwoordInput.Text);
+                        healthAppDatabase.CreateKlantToken(inlogKlant, HashMaker.ToSHA512(WachtwoordInput.Text));
                         KlantToken klantToken2 = healthAppDatabase.GetKlantToken();
                         Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken2));
                     }

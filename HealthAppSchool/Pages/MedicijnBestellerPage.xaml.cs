@@ -45,7 +45,15 @@ public partial class MedicijnBestellerPage : ContentPage
     {
 
     }
+    private void NoodButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new NoodKnopPage());
+    }
 
+    private void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new OptiePage());
+    }
 
 
     //private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)

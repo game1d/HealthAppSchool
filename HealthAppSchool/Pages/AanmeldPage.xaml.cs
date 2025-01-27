@@ -23,11 +23,12 @@ public partial class AanmeldPage : ContentPage
             Voornaam = voornaamEntry.Text,
             Achternaam = achternaamEntry.Text,
             Email = emailEntry.Text,
-            WachtWoord = wachtwoordEntry.Text
+            WachtWoord = HashMaker.ToSHA512(wachtwoordEntry.Text)
 
         };
         //KlantToken klantToken = new KlantToken();
-        _healthAppDatabase.CreateKlant(nieuweKlant);
+        try { _healthAppDatabase.CreateKlant(nieuweKlant); }
+        catch (Exception ex) { DisplayAlert("error", $"{ex}", "ok"); }
 
         Navigation.PushAsync(new MainPage(_healthAppDatabase));
     }
