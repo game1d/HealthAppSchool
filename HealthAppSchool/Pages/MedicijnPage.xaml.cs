@@ -30,7 +30,7 @@ public partial class MedicijnPage: ContentPage
 
     private async void Medicijnplannerbtn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MedicijnPlannerPage(healthAppDatabase));
+        await Navigation.PushAsync(new MedicijnPlannerPage(healthAppDatabase, klantToken));
     }
     private void NoodButton_Clicked(object sender, EventArgs e)
     {

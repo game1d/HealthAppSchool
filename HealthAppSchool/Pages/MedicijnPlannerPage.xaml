@@ -2,15 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthAppSchool.Pages.MedicijnPlannerPage"
-             Title="MedicijnPlannerPage">
+             Title="Medicijn Planner">
     <ContentPage.ToolbarItems>
         <ToolbarItem 
             x:Name="NoodButton" Text="Noodknop" Clicked="NoodButton_Clicked" IconImageSource="redbutton.png"/>
         <ToolbarItem 
                 x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
     </ContentPage.ToolbarItems>
-    <VerticalStackLayout>
-             Title="Medicijn Planner">
+
+             
     <VerticalStackLayout Padding="20" Spacing="20">
         <Label 
             Text="Medicijn herinnering plannen"

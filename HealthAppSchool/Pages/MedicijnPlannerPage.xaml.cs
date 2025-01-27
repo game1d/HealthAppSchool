@@ -9,7 +9,7 @@ public partial class MedicijnPlannerPage : ContentPage
     public MedicijnPlannerPage(HealthAppDatabase _healtAppDatabase, KlantToken _klantToken)
 	{
 		InitializeComponent();
-        healthAppDatabase = healtAppDatase;
+        healthAppDatabase = _healtAppDatabase;
         BindingContext = this;
     }
     protected override async void OnAppearing()
@@ -36,9 +36,8 @@ public partial class MedicijnPlannerPage : ContentPage
         await DisplayAlert("Succes", "Herinnering ingesteld", "OK");
 
     }
-        healthAppDatabase = _healtAppDatabase;
-        klantToken = _klantToken;
-	}
+
+	
     private void NoodButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new NoodKnopPage());
