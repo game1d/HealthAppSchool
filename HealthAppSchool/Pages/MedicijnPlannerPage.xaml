@@ -10,9 +10,20 @@
                 x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
+             Title="Medicijn Planner">
+    <VerticalStackLayout Padding="20" Spacing="20">
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Medicijn herinnering plannen"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+        <Label x:Name="SelectMedicijn" Text="Medicijn Naam" HorizontalOptions="Center"/>
+        <Entry x:Name="MedicijnNaamEntry" Placeholder="Voer Medicijn naam in" HorizontalOptions="Center"/>
+
+        <Label x:Name="SelectTijd" Text="Selecteer tijd" HorizontalOptions="Center"/>
+        <TimePicker x:Name="HerinneringTimePicker" Format="HH:mm:ss" HorizontalOptions="Center"/>
+
+        <Button x:Name="Herinneringbtn" Text="Herinnering instellen" Clicked="Herinneringbtn_Clicked"/>
+
     </VerticalStackLayout>
 </ContentPage>

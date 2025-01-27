@@ -230,9 +230,9 @@ namespace HealthAppSchool.Data
         {
             return await _context.Set<MedicijnHerinnering>().FirstOrDefaultAsync(mh => mh.MedicijnHerinneringId == HerinneringId);
         }
-        public async Task CreateMedicijnHerinnering(MedicijnHerinnering herinnering)
+        public async Task AddMedicijnHerinnering(MedicijnHerinnering medicijnherinnering)
         {
-            await _context.Set<MedicijnHerinnering>().AddAsync(herinnering);
+            await _context.Set<MedicijnHerinnering>().AddAsync(medicijnherinnering);
             await _context.SaveChangesAsync();
         }
         public async Task DeleteMedicijnHerinnering(int herinneringId)
