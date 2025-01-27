@@ -1,6 +1,7 @@
 ﻿using HealthAppSchool.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,7 +78,7 @@ namespace HealthAppSchool.Data
         //patient crud
 
         //medicijn en medicijn afspraak crud
-        public async Task<List<Medicijn>>GetMedicijnenByPatientId(int patientId)
+        public async Task<List<Medicijn>>GetPatientByPatientId(int patientId)
         {
             return await _context.medicijnDb.Where(m => m.PatientId == patientId).ToListAsync();
         }
@@ -116,6 +117,7 @@ namespace HealthAppSchool.Data
             await _context.SaveChangesAsync();
         }
 
+
         //kennisclips en stressmanagement crud
         public async Task<List<KennisClip>> GetKennisClips()
         {
@@ -128,6 +130,11 @@ namespace HealthAppSchool.Data
             List<StressManagement> result = new List<StressManagement>();
             result = await _context.stressManagementDb.ToListAsync();
             return result;
+        }
+
+        internal async Task<IEnumerable> GetMedicijnByIdAsync()
+        {
+            throw new NotImplementedException();
         }
 
         //consulent crud
