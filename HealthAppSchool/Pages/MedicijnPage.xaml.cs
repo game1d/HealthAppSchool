@@ -4,22 +4,22 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace HealthAppSchool.Pages;
 
-public partial class MedicijnPage : ContentPage
+public partial class MedicijnPage: ContentPage
 {
 	public KlantToken klantToken { get; set; }
-    public MedicijnPage(KlantToken _klantToken)
-   
     HealthAppDatabase healthAppDatabase;
-  
+    // public MedicijnPage(KlantToken _klantToken);
+
     public MedicijnPage(HealthAppDatabase healtAppDatase)
 	{
 		InitializeComponent();
         healthAppDatabase = healtAppDatase;
         BindingContext = this;
         HaalPatientData();
+        //klantToken = _klantToken;
     }
-        klantToken = _klantToken;
-	}
+       
+	
 
     public async void HaalPatientData()
     {
