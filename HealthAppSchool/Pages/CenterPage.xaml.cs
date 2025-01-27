@@ -9,17 +9,22 @@ public partial class CenterPage : ContentPage
     KlantToken klantToken;
     public Klant IngelogdeKlant { get; set; }
 
-    public CenterPage(HealthAppDatabase dataBase, KlantToken _klantToken , Klant klant)
+    public CenterPage(HealthAppDatabase dataBase, KlantToken _klantToken )
 	{
         healthAppDatabase = dataBase;
         klantToken = _klantToken;
 
-        IngelogdeKlant = klant;
+
 
 
         InitializeComponent();
         
 	}
+    protected override async void OnNavigatedTo(NavigatedToEventArgs e)
+    {
+        base.OnNavigatedTo(e);
+        IngelogdeKlant = await healthAppDatabase.GetKlantOnId(klantToken.KlantId);
+    }
 
     private void backButton_Clicked(object sender, EventArgs e)
     {
@@ -41,7 +46,7 @@ public partial class CenterPage : ContentPage
    
     private void VoedingsInnameButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new VoedingInnamePage(healthAppDatabase, klantToken));
+        Navigation.PushAsync(new VoedingInnamePage(klantToken.KlantId,healthAppDatabase, klantToken));
     }
 
     private void VoedingsWaardeButton_Clicked(object sender, EventArgs e)

@@ -17,7 +17,8 @@ namespace HealthAppSchool
             healthAppDatabase = dataBase;
             
             KlantToken klantToken = healthAppDatabase.GetKlantToken();
-            if (klantToken != null) { Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken,IngelogdeKlant)); }
+            
+            if (klantToken != null) { Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken)); }
         }
 
         private async void InlogButton_Clicked(object sender, EventArgs e)

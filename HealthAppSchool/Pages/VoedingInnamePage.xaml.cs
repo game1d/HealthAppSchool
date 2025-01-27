@@ -9,22 +9,22 @@ public partial class VoedingInnamePage : ContentPage
 {
     public HealthAppDatabase healthAppDatabase { get; set; }
     public KlantToken klantToken { get; set; }
-    public VoedingInnamePage(HealthAppDatabase _healthAppDatabase, KlantToken _klantToken)
+
     public ObservableCollection<VoedselInname> Voedsels { get; set; } = new();
     private readonly HealthAppDatabase _database;
     public int IngelogdeKlant;
-    public VoedingInnamePage( int klantId ,HealthAppDatabase database)
+    public VoedingInnamePage( int klantId ,HealthAppDatabase database, KlantToken _klantToken)
 	{
 		InitializeComponent();
         IngelogdeKlant = klantId;
         _database = database;
-
+        klantToken = _klantToken;
         BindingContext = this;
 
     }
-        healthAppDatabase = _healthAppDatabase;
-        klantToken = _klantToken;
-	}
+
+        
+	
     private void NoodButton_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new NoodKnopPage());
@@ -37,7 +37,7 @@ public partial class VoedingInnamePage : ContentPage
 
     private void voegVoedselToeBtn_Clicked(object sender, EventArgs e)
     {
-         Navigation.PushAsync(new VoedselInvulPage(IngelogdeKlant, _database));
+         Navigation.PushAsync(new VoedselInvulPage(IngelogdeKlant, _database, klantToken));
     }
     private async Task<ObservableCollection<VoedselInname>> GetVoedselInname()
     {

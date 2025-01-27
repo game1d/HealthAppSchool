@@ -7,13 +7,15 @@ using HealthAppSchool.Data;
 
 public partial class VoedselInvulPage : ContentPage
 {
+    public KlantToken klantToken;
     private readonly HealthAppDatabase _database;
     private readonly int _ingelogdeKlantId;
-    public VoedselInvulPage(int ingelogdeKlantId, HealthAppDatabase database)
+    public VoedselInvulPage(int ingelogdeKlantId, HealthAppDatabase database, KlantToken _klantToken)
     {
         InitializeComponent();
         _database = database;
         _ingelogdeKlantId = ingelogdeKlantId;
+        klantToken = _klantToken;
     }
 
     private async void OpslaanButton_Clicked(object sender, EventArgs e)
@@ -51,6 +53,6 @@ public partial class VoedselInvulPage : ContentPage
 
     private void SettingsButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new OptiePage(healthAppDatabase, klantToken));
+        Navigation.PushAsync(new OptiePage(_database, klantToken));
     }
 }
