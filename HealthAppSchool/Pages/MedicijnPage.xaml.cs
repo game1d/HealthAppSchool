@@ -14,7 +14,7 @@ public partial class MedicijnPage: ContentPage
 	{
 		InitializeComponent();
         healthAppDatabase = healtAppDatase;
-        klantToken = _klantToken;
+        //klantToken = _klantToken;
         BindingContext = this;
         HaalPatientData();
     }
@@ -36,7 +36,7 @@ public partial class MedicijnPage: ContentPage
 
     private async void bestelbtn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MedicijnBestellerPage(healthAppDatabase,klantToken));
+        await Navigation.PushAsync(new MedicijnBestellerPage(healthAppDatabase));
        
     }
 

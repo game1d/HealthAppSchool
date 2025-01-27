@@ -59,7 +59,7 @@ public partial class CenterPage : ContentPage
 
     private void MedicijnButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MedicijnPage(healthAppDatabase,klantToken));
+        Navigation.PushAsync(new MedicijnPage(healthAppDatabase));
     }
 
 

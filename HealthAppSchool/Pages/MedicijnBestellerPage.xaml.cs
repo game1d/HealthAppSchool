@@ -16,8 +16,8 @@ public partial class MedicijnBestellerPage : ContentPage
         healthAppDatabase = healtAppDatase;
         BindingContext = this;
         healthAppDatabase = healtAppDatase;
-        klantToken = _klantToken;
-        HaalMedicijnen();
+        //klantToken = _klantToken;
+        //HaalMedicijnen();
     }
     protected override async void OnAppearing()
     {
@@ -25,7 +25,7 @@ public partial class MedicijnBestellerPage : ContentPage
         medicijnen = await healthAppDatabase.GetMedicijnsIdAsync();
         LvMedicijn.ItemsSource = medicijnen;
     }
-
+  
 
     private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
     {
@@ -40,8 +40,8 @@ public partial class MedicijnBestellerPage : ContentPage
             {
                 try
                 {
-                    await healthAppDatabase.AddMedicijnAsync(SelectedMedicijn);
-                    await DisplayAlert("Goed", "Het medicijn is succesvol besteld", "OK");
+                    //await healthAppDatabase.AddMedicijnAsync(SelectedMedicijn);
+                    await DisplayAlert("Goed", $"Het medicijn {SelectedMedicijn.MedicijnNaam} is succesvol besteld", "OK");
                 }
                 catch (Exception ex)
                 {

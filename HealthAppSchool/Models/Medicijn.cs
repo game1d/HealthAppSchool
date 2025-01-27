@@ -12,6 +12,6 @@ namespace HealthAppSchool.Models
         public string MedicijnNaam {  get; set; }
         public int PatientId { get; set; }
         public Patient Patient { get; set; }
-        public List<Medicijn> medicijnen { get; set; } = new List<Medicijn>();
+        
     }
 }
