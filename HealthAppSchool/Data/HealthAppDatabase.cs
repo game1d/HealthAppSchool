@@ -81,6 +81,59 @@ namespace HealthAppSchool.Data
 
         //voeding en voedingswaarde crud
 
+        public async Task<List<VoedselInname>> GetVoedselInnamesOnKlant(int klantId)
+        {
+
+            List<VoedselInname> result = new List<VoedselInname>();
+            List<VoedselInname> voedselInnames = await _context.VoedselInnamesDb.ToListAsync();
+
+            foreach (VoedselInname vi in voedselInnames)
+            {
+                if (vi.KlantId == klantId)
+                {
+                    result.Add(vi);
+                }
+            }
+            return result;
+        }
+        public async Task<List<Voedingswaarde>> GetVoedingswaardenOnKlant(int klantId)
+        {
+            List<Voedingswaarde> result = new List<Voedingswaarde>();
+            List<Voedingswaarde> voedingswaarden = await _context.voedingswaardenDb.ToListAsync();
+            foreach (Voedingswaarde vw in voedingswaarden)
+            {
+                if (vw.KlantId == klantId)
+                {
+                    result.Add(vw);
+                }
+            }
+            return result;
+        }
+        public async void CreateVoedselInname(VoedselInname voedselInname)
+        {
+            await _context.VoedselInnamesDb.AddAsync(voedselInname);
+            await _context.SaveChangesAsync();
+        }
+
+      
+
+        public async void CreateVoedingswaarde(Voedingswaarde voedingswaarde)
+        {
+            await _context.voedingswaardenDb.AddAsync(voedingswaarde);
+            await _context.SaveChangesAsync();
+        }
+
+        public async void DeleteVoedingswaarde(Voedingswaarde voedingswaarde)
+        {
+            _context.voedingswaardenDb.Remove(voedingswaarde);
+            await _context.SaveChangesAsync();
+        }
+        public async void DeleteVoedselInname(VoedselInname voedselInname)
+        {
+            _context.VoedselInnamesDb.Remove(voedselInname);
+            await _context.SaveChangesAsync();
+        }
+
         //slaappatroon crud
 
         //patient crud

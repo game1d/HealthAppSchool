@@ -8,14 +8,16 @@ namespace HealthAppSchool
     {
 
 
-        HealthAppDatabase healthAppDatabase;
+        private readonly HealthAppDatabase healthAppDatabase;
 
+        Klant IngelogdeKlant = new Klant();
         public MainPage(HealthAppDatabase dataBase)
         {
             InitializeComponent();
             healthAppDatabase = dataBase;
+            
             KlantToken klantToken = healthAppDatabase.GetKlantToken();
-            if (klantToken != null) { Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken)); }
+            if (klantToken != null) { Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken,IngelogdeKlant)); }
         }
 
         private async void InlogButton_Clicked(object sender, EventArgs e)
@@ -25,12 +27,13 @@ namespace HealthAppSchool
                 if (EmailInput.Text != null && WachtwoordInput.Text != null)
                 {
                     Klant inlogKlant = await healthAppDatabase.GetKlantOnEmail(EmailInput.Text);
+                    IngelogdeKlant = inlogKlant;
                     if (inlogKlant.Email == null) { await DisplayAlert("Verkeerd email", "Het email dat is ingevuld bestaat niet.", "ok"); }
                     else if (inlogKlant.WachtWoord == HashMaker.ToSHA512(WachtwoordInput.Text))
                     {
                         healthAppDatabase.CreateKlantToken(inlogKlant, HashMaker.ToSHA512(WachtwoordInput.Text));
                         KlantToken klantToken2 = healthAppDatabase.GetKlantToken();
-                        Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken2));
+                        Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken2, inlogKlant));
                     }
                     else { await DisplayAlert("Verkeerd wachtwoord", "Het wachtwoord dat is ingevuld klopt niet.", "ok"); }
                 }
