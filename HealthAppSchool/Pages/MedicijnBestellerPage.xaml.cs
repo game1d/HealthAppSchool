@@ -8,53 +8,45 @@ public partial class MedicijnBestellerPage : ContentPage
 {
     HealthAppDatabase healthAppDatabase;
     public List<Medicijn> medicijnen { get; set; } = new List<Medicijn>();
-  
+
     public MedicijnBestellerPage(HealthAppDatabase healtAppDatase)
-	{
-		InitializeComponent();
-    
+    {
+        InitializeComponent();
+        healthAppDatabase = healtAppDatase;
         BindingContext = this;
-        HaalMedicijnen();
+
     }
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        HaalMedicijnen();
+        medicijnen = await healthAppDatabase.GetMedicijnsIdAsync();
+        LvMedicijn.ItemsSource = medicijnen;
     }
-    private async void HaalMedicijnen()
+
+
+    private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
     {
-        try
+        if (e.Item == null)
+            return;
+        var SelectedMedicijn = e.Item as Medicijn;
+        if (SelectedMedicijn != null)
         {
-            var medicijnen = await healthAppDatabase.GetMedicijnByIdAsync();
-            LvMedicijn.ItemsSource = null; 
-            LvMedicijn.ItemsSource = medicijnen;
+            // await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
+            var Bevestigen = await DisplayAlert("Bevestigen", "wilt u bestellen?", "Ja", "Nee");
+            if (Bevestigen)
+            {
+                try
+                {
+                    await healthAppDatabase.AddMedicijnAsync(SelectedMedicijn);
+                    await DisplayAlert("Goed", "Het medicijn is succesvol besteld", "OK");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Fout", "Het medicijn kan niet besteld worden", "OK");
+                }
+            }
+        ((ListView)sender).SelectedItem = null;
+
         }
-
-        catch (Exception ex)
-        {
-            await DisplayAlert("Fout", $"Fout bij ophalen van medicijn: {ex.Message}", "OK");
-        }
-       
-      
     }
-
-    private void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
-
-    }
-
-
-
-    //private async void LvMedicijn_ItemTapped(object sender, ItemTappedEventArgs e)
-    //{
-    //    if (e.Item == null)
-    //        return;
-    //    var SelectedMedicijn = e.Item as Medicijn;
-    //    if (SelectedMedicijn != null)
-    //    {
-    //        await DisplayAlert("ok", "Ok", "Ok");
-    //    }
-    //    ((ListView)sender).SelectedItem = null;
-
-    //}
 }

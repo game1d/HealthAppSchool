@@ -5,16 +5,16 @@
              Title="Medicijn Bestellen">
     <VerticalStackLayout>
         <Label Text="Medicijnoverzicht" HorizontalOptions="Center" FontSize="Large"/>
-        <Label Text="Te bestellen Medicijnen via app" Padding="10"/>
+        <Label Text="Te bestellen Medicijnen via app" Padding="10" HorizontalOptions="Center"/>
         <ScrollView>
             <StackLayout>
-                <Label Text="Lijst van Medicijn"/>
+                <Label Text="Lijst van Medicijn" HorizontalOptions="Center"/>
                 <ListView x:Name="LvMedicijn" ItemsSource="{Binding Medicijnen}" HasUnevenRows="True" ItemTapped="LvMedicijn_ItemTapped" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Padding="10">
-                                    <Label Text="{Binding MedicijnNaam}"/>
+                                    <Label Text="{Binding MedicijnNaam}" HorizontalOptions="Center"/>
 
                                 </StackLayout>
                             </ViewCell>

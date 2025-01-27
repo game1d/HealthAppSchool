@@ -16,10 +16,8 @@ public partial class MedicijnPage: ContentPage
         healthAppDatabase = healtAppDatase;
         BindingContext = this;
         HaalPatientData();
-        //klantToken = _klantToken;
+        klantToken = klantToken;
     }
-       
-	
 
     public async void HaalPatientData()
     {

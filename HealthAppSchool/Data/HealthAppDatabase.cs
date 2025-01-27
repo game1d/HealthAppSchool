@@ -82,13 +82,14 @@ namespace HealthAppSchool.Data
         {
             return await _context.medicijnDb.Where(m => m.PatientId == patientId).ToListAsync();
         }
-        public async Task<Medicijn> GetMedicijnById(int medicijnId)
+        public async Task<List<Medicijn>> GetMedicijnsIdAsync()
         {
-            return await _context.medicijnDb.FirstOrDefaultAsync(m => m.MedicijnId == medicijnId);
+            return await _context.medicijnDb.ToListAsync();
         }
-        public async Task CreateMedicijn(Medicijn medicijn)
+        
+        public async Task AddMedicijnAsync(Medicijn medicijn)
         {
-            await _context.medicijnDb.AddAsync(medicijn);
+             _context.medicijnDb.Add(medicijn);
             await _context.SaveChangesAsync();
         }
         public async Task DeleteMedicijn(int medicijnId)
