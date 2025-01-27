@@ -6,19 +6,19 @@ using HealthAppSchool.Models;
 public partial class CenterPage : ContentPage
 {
     HealthAppDatabase healthAppDatabase;
-    KlantToken KlantToken;
+    KlantToken klantToken;
 
-    public CenterPage(HealthAppDatabase dataBase, KlantToken klantToken)
+    public CenterPage(HealthAppDatabase dataBase, KlantToken _klantToken)
 	{
         healthAppDatabase = dataBase;
-        KlantToken = klantToken;
+        this.klantToken = _klantToken;
         InitializeComponent();
         
 	}
 
     private void backButton_Clicked(object sender, EventArgs e)
     {
-        healthAppDatabase.DeleteKlantToken(KlantToken);
+        healthAppDatabase.DeleteKlantToken(klantToken);
 
         Navigation.PopAsync();
     }
@@ -55,6 +55,6 @@ public partial class CenterPage : ContentPage
 
     private void MedicijnButton_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MedicijnPage());
+        Navigation.PushAsync(new MedicijnPage(klantToken));
     }
 }
