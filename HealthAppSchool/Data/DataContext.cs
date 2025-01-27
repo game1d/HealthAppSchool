@@ -19,7 +19,9 @@ namespace HealthAppSchool.Data
         public DbSet<Klant> KlantDb { get; set; }
         public DbSet<Patient> PatientDb { get; set; }
         public DbSet<KlantToken> KlantTokenDb { get; set; }
-        
+        public DbSet<Voedingswaarde> voedingswaardenDb { get; set; }
+        public DbSet<VoedselInname> VoedselInnamesDb { get; set; }
+
         public DbSet<Medicijn> medicijnDb {  get; set; }
 
         public DbSet<FysiekeActiviteit> fysiekeActiviteitDb { get; set; }

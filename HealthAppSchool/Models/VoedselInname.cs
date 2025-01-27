@@ -11,8 +11,8 @@ namespace HealthAppSchool.Models
         public int VoedselInnameId { get; set; }
         public int KlantId { get; set; }
         public Klant Klant { get; set; }
-        public string Voedsel {  get; set; }
-        public int Gram {  get; set; }
+        public string VoedselNaam {  get; set; }
+        public int VoedselGewichtInGram {  get; set; }
         public DateOnly Datum { get; set; }
     }
 }

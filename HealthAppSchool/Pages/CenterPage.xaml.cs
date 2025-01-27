@@ -7,11 +7,16 @@ public partial class CenterPage : ContentPage
 {
     HealthAppDatabase healthAppDatabase;
     KlantToken klantToken;
+    public Klant IngelogdeKlant { get; set; }
 
-    public CenterPage(HealthAppDatabase dataBase, KlantToken _klantToken)
+    public CenterPage(HealthAppDatabase dataBase, KlantToken _klantToken , Klant klant)
 	{
         healthAppDatabase = dataBase;
         klantToken = _klantToken;
+
+        IngelogdeKlant = klant;
+
+
         InitializeComponent();
         
 	}
@@ -19,7 +24,7 @@ public partial class CenterPage : ContentPage
     private void backButton_Clicked(object sender, EventArgs e)
     {
         healthAppDatabase.DeleteKlantToken(klantToken);
-
+        
         Navigation.PopAsync();
     }
 
