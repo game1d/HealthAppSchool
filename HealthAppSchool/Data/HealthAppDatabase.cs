@@ -141,6 +141,13 @@ namespace HealthAppSchool.Data
             return result;
         }
 
+        public async void DeleteFysiekeActiviteit(FysiekeActiviteit fysiekeActiviteit)
+        {
+            _context.fysiekeActiviteitDb.Remove(fysiekeActiviteit);
+            await _context.SaveChangesAsync();
+            
+        }
+
         //voeding en voedingswaarde crud
 
         public async Task<List<VoedselInname>> GetVoedselInnamesOnKlant(int klantId)

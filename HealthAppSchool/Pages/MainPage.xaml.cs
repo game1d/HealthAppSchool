@@ -10,7 +10,7 @@ namespace HealthAppSchool
 
         private readonly HealthAppDatabase healthAppDatabase;
 
-        Klant IngelogdeKlant = new Klant();
+
         public MainPage(HealthAppDatabase dataBase)
         {
             InitializeComponent();
@@ -18,7 +18,15 @@ namespace HealthAppSchool
             
             KlantToken klantToken = healthAppDatabase.GetKlantToken();
             
-            if (klantToken != null) { Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken)); }
+            if (klantToken != null) 
+            {
+                try { InlogProcedureKlantToken(klantToken); }
+                catch (Exception ex) 
+                {
+                    DisplayAlert("Tokeninlogerror", $"Je token klopt niet. {ex.Message}", "ok");
+                    healthAppDatabase.DeleteKlantToken(klantToken);
+                }
+            }
         }
 
         private async void InlogButton_Clicked(object sender, EventArgs e)
@@ -28,7 +36,7 @@ namespace HealthAppSchool
                 if (EmailInput.Text != null && WachtwoordInput.Text != null)
                 {
                     Klant inlogKlant = await healthAppDatabase.GetKlantOnEmail(EmailInput.Text);
-                    IngelogdeKlant = inlogKlant;
+
                     if (inlogKlant.Email == null) { await DisplayAlert("Verkeerd email", "Het email dat is ingevuld bestaat niet.", "ok"); }
                     else if (inlogKlant.WachtWoord == HashMaker.ToSHA512(WachtwoordInput.Text))
                     {
@@ -53,6 +61,18 @@ namespace HealthAppSchool
         private async void RegistreerButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AanmeldPage(healthAppDatabase));
+        }
+        private async void InlogProcedureKlantToken(KlantToken klantToken)
+        {
+            Klant inlogKlant = await healthAppDatabase.GetKlantOnEmail(klantToken.KlantEmail);
+
+            if (inlogKlant.Email == null) { await DisplayAlert("Verkeerd email", "Het email dat is ingevuld bestaat niet.", "ok"); }
+            else if (inlogKlant.WachtWoord == klantToken.KlantWachtwoord)
+            {
+
+                await Navigation.PushAsync(new CenterPage(healthAppDatabase, klantToken));
+            }
+            else { await DisplayAlert("Verkeerd wachtwoord", "Het wachtwoord dat is ingevuld klopt niet.", "ok"); }
         }
     }
 }

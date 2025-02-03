@@ -10,16 +10,37 @@
         <ToolbarItem 
                 x:Name="SettingsButton" Text="settings" Clicked="SettingsButton_Clicked"/>
     </ContentPage.ToolbarItems>
-    <ScrollView>
+    <ScrollView Orientation="Both">
         <VerticalStackLayout>
 
             <Label 
         Text="Welkom op de fysieke activiteitpagina"
         VerticalOptions="Center" 
         HorizontalOptions="Center" />
+            <HorizontalStackLayout WidthRequest="1000" HorizontalOptions="Center">
+                <Label Text="minimum datum"/>
+                <DatePicker x:Name="MinDatePicker" MinimumDate="2024, 8, 14" Date="2024, 8, 14" DateSelected="MinDatePicker_DateSelected"/>
+                <Label Text="maximum datum"/>
+                <DatePicker x:Name="MaxDatePicker" MinimumDate="2024, 8, 14" DateSelected="MaxDatePicker_DateSelected"/>
+                <Label Text="Filter op activiteit:"/>
+                <Picker x:Name="ActiviteitPicker" SelectedIndexChanged="ActiviteitPicker_SelectedIndexChanged"/>
+            </HorizontalStackLayout>
             <micro:ChartView x:Name="chartView" HeightRequest="600" />
-            <micro:ChartView x:Name="chartDictView" HeightRequest="600"/>
-            <micro:ChartView x:Name="chartDict2View" HeightRequest="600"/>
+
+                <CollectionView Background="LightGray" x:Name="deleteListView" ItemsLayout="HorizontalList" SelectionChanged="deleteListView_SelectionChanged" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                     
+                                <StackLayout Padding="10">
+                                    <Label Text="delete" TextColor="White" BackgroundColor="Red" MinimumWidthRequest="180"/>
+                                </StackLayout>
+                       
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            <micro:ChartView x:Name="chartDictView" HeightRequest="600" />
+            <micro:ChartView x:Name="chartDict2View" HeightRequest="600" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
